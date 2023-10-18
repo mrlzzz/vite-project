@@ -1,0 +1,43 @@
+@keyframes expand-page {
+    0% {
+        width: 66%;
+    }
+    100% {
+        width: 82%;
+    }
+}
+@keyframes shrink-page {
+    0% {
+        width: 82%;
+    }
+    100% {
+        width: 66%;
+    }
+}
+
+.expandable-page {
+    /* overflow: hidden;
+    max-height: 200px; */
+    width: 66%;
+    transition: width 0.5s;
+}
+
+.expanded-page {
+    animation: expand-page 0.5s forwards; /* Apply the "expand" animation */
+}
+
+.closed-page {
+    animation: shrink-page 0.5s forwards; /* Apply the "close" animation */
+}
+
+@media screen and (max-width: 1024px) {
+    .closed-page {
+        width: 100% !important;
+    }
+    .expanded-page {
+        width: 100% !important;
+    }
+    .expandable-page {
+        width: 100% !important;
+    }
+}
