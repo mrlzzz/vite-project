@@ -122,8 +122,8 @@ const ProjectForm = () => {
                         type="number"
                         {...register("age", {
                             required: true,
-                            min: 18,
-                            max: 60,
+                            min: 20,
+                            max: 150,
                         })}
                         min="0"
                         max="100"
@@ -134,7 +134,7 @@ const ProjectForm = () => {
                             className="bg-red-700 text-sm text-red-200"
                             role="alert"
                         >
-                            You have to be at least 18, cya.
+                            You have to be at least 20.
                         </p>
                     )}
                     {errors.age?.type === "max" && (
@@ -142,7 +142,7 @@ const ProjectForm = () => {
                             className="bg-red-700 text-sm text-red-200"
                             role="alert"
                         >
-                            You can't be older then 60???
+                            Are you sure?
                         </p>
                     )}
                     {errors.age?.type === "required" && (
