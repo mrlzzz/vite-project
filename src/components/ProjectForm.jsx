@@ -4,7 +4,6 @@ const ProjectForm = () => {
     const {
         register,
         handleSubmit,
-        watch,
         control,
         formState: { errors },
     } = useForm();
@@ -154,14 +153,14 @@ const ProjectForm = () => {
                             Age is required!
                         </p>
                     )}
-                    <label>Gender</label>
+                    <label>Choose one</label>
                     <select
-                        {...register("gender")}
-                        aria-invalid={errors.gender ? "true" : "false"}
+                        {...register("chooseOne")}
+                        aria-invalid={errors.chooseOne ? "true" : "false"}
                     >
-                        <option value="Male">Gay</option>
-                        <option value="Female">Slighty gay</option>
-                        <option value="Other">Supa gay</option>
+                        <option value="Three">Three</option>
+                        <option value="Two">Two</option>
+                        <option value="One">One</option>
                     </select>
                     <label>Email</label>
                     <input
