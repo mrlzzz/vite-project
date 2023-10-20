@@ -68,7 +68,6 @@ const ProjectForm = () => {
         handleSubmit,
         control,
         formState: { errors, isSubmitting, isSubmitSuccessful },
-        reset,
     } = useForm({
         mode: "onTouched",
     });
@@ -268,7 +267,7 @@ const ProjectForm = () => {
                         type="email"
                         {...register("email", {
                             required: true,
-                            pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+                            pattern: /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
                             validate: "email",
                         })}
                         disabled={isSubmitting}
