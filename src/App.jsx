@@ -2,14 +2,9 @@ import "./App.css";
 import Layout from "./components/Layout";
 import Post from "./components/Post";
 import Card from "./components/Card";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-    const navigate = useNavigate();
-    const goBack = () => {
-        navigate(-1);
-    };
-
     // Dummy data section. It will be switched to an API call in the future.
 
     const projectsData = [
