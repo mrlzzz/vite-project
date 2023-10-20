@@ -9,7 +9,7 @@ const HeartCheckbox = (props) => (
             {...props}
         />
         <svg
-            className="animate-pulse anime- absolute w-4 h-4 pointer-events-none stroke-white fill-slate-400 peer-hover:fill-slate-500 peer-checked:!fill-red-500 mt-1"
+            className="animate-pulse absolute w-4 h-4 pointer-events-none stroke-white fill-slate-400 peer-hover:fill-slate-500 peer-checked:!fill-red-500 mt-1"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -191,7 +191,7 @@ const ProjectForm = () => {
                 }
             >
                 {isSubmitSuccessful ? (
-                    <div className={"bg-green-700 text-sm text-green-200 p-2"}>
+                    <div className="bg-green-700 text-sm text-green-200 p-2">
                         Data sent!
                     </div>
                 ) : (
