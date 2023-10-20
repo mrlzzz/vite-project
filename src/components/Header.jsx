@@ -40,7 +40,7 @@ export default function Header() {
         <>
             <nav
                 ref={navRef}
-                className="sticky top-0 flex flex-nowrap duration-300 w-full items-center justify-between bg-slate-700 py-2 shadow-md shadow-black/10 lg:flex-wrap lg:justify-start"
+                className="sticky z-10 top-0 flex flex-nowrap duration-300 w-full items-center justify-between bg-slate-700 py-2 shadow-md shadow-black/10 lg:flex-wrap lg:justify-start"
             >
                 <div className="lg:w-2/3 sm:w-full flex flex-wrap items-center lg:mx-auto justify-between duration-300">
                     <button

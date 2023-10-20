@@ -103,8 +103,6 @@ function App() {
                     The following dynamically creates any "/projects" subroutes 
                 */}
                 {projectsData.map((e, index) => {
-                    console.log(e);
-
                     return (
                         <Route
                             exact
