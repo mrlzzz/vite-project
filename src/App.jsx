@@ -84,6 +84,7 @@ function App() {
                 {projectsData.map((e, index) => {
                     return (
                         <Route
+                            exact
                             path={"/vite-project/projects" + e.path}
                             element={<Layout data={e} />}
                             key={index}
