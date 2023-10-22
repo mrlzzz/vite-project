@@ -12,7 +12,8 @@ const ProjectContent = ({ children }) => {
 
     if (
         path === "/vite-project/projects" &&
-        (prevLocation === "/" || prevLocation === "/blog")
+        (prevLocation === "/vite-project/" ||
+            prevLocation === "/vite-project/blog")
     ) {
         expand = true;
     }
