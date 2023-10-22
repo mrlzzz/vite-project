@@ -9,7 +9,7 @@ const HeartCheckbox = (props) => (
             {...props}
         />
         <svg
-            className="animate-pulse absolute w-4 h-4 pointer-events-none stroke-white fill-slate-400 peer-hover:fill-slate-500 peer-checked:!fill-red-500 mt-1"
+            className="absolute w-4 h-4 pointer-events-none stroke-white fill-slate-400 peer-hover:fill-slate-500 peer-checked:!fill-red-500 mt-1"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -125,13 +125,23 @@ const ProjectForm = () => {
                     amount of re-renders possible.
                 </p>
                 <p>
-                    On submit, the form data is sent to the local Express
-                    instance. The instance exposes a route to HTTP POST requests
-                    and enables CORS for the <code>origin</code> or this app.
-                    Moreover the{" "}
+                    On submit, the form data is sent to a local{" "}
+                    <code>nodejs</code> instance. The instance exposes a route
+                    to HTTP POST requests and enables CORS for the{" "}
+                    <code>origin</code> or this app. Moreover the{" "}
                     <code className="text-slate-950">body-parser</code>{" "}
                     middleware is used to enable parsing of both{" "}
                     <code>JSON</code> and <code>url-encoded</code> payloads.
+                </p>
+                <br />
+                <p>
+                    <i>21/10/23</i> - I have added the silly heart-shaped
+                    checkboxes. To do so, I had to utilize <code>peer</code>{" "}
+                    utility class and its <code>peer:checked</code> and{" "}
+                    <code>peer:hover</code> pseudo classes . As well as,{" "}
+                    <code>svg</code> HTML element and{" "}
+                    <code>appearance-none</code> utility class for the checkbox{" "}
+                    <code>input</code> element.
                 </p>
                 <br />
                 <div>

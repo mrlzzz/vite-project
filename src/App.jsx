@@ -9,32 +9,18 @@ function App() {
 
     const projectsData = [
         {
-            title: "React Forms Example",
+            title: "React-form-hook",
             subTitle: "Using the hook!",
             date: new Date().toDateString(),
             desc: "Learning how to properly handle forms in React. There is many ways of handling that natively using state, context and reducer functions. Although, I've heard it's a great hussle to do it properly. So why not use the hook goodies?",
             path: "/react-forms",
         },
         {
-            title: "Example",
-            subTitle: "Subtitle",
+            title: "Flexdown lesson",
+            subTitle: "Flexbox x markdown",
             date: new Date().toDateString(),
-            desc: "Description",
-            path: "/example",
-        },
-        {
-            title: "Example",
-            subTitle: "Subtitle",
-            date: new Date().toDateString(),
-            desc: "Description",
-            path: "/example",
-        },
-        {
-            title: "Example",
-            subTitle: "Subtitle",
-            date: new Date().toDateString(),
-            desc: "Description",
-            path: "/example",
+            desc: "Studying the flexbox while trying to render markdown notes",
+            path: "/flexbox",
         },
         {
             title: "Example",
@@ -83,14 +69,9 @@ function App() {
     return (
         <div className=" bg-slate-300">
             <Routes>
-                <Route exact path="/" element={<Layout></Layout>} />
+                <Route path="/" element={<Layout />} />
+                <Route path="/blog" element={<Layout>{blogPostList}</Layout>} />
                 <Route
-                    exact
-                    path="/blog"
-                    element={<Layout>{blogPostList}</Layout>}
-                />
-                <Route
-                    exact
                     path="/projects"
                     element={<Layout>{projectsPostList}</Layout>}
                 />
@@ -100,25 +81,14 @@ function App() {
                 {projectsData.map((e, index) => {
                     return (
                         <Route
-                            exact
                             path={"/projects" + e.path}
-                            element={
-                                // <div className="pl-2">
-                                //     <h1>You are at: `/projects{e.path}`</h1>
-                                //     <button
-                                //         className="bg-slate-500 hover:bg-slate-400 text-slate-100 font-bold py-2 px-2 border-b-4 border-slate-700 hover:border-slate-500 rounded"
-                                //         onClick={goBack}
-                                //     >
-                                //         {String.fromCharCode(8678) + " Go back"}
-                                //     </button>
-                                // </div>
-                                <Layout data={e} />
-                            }
+                            element={<Layout data={e} />}
                             key={index}
                         />
                     );
                 })}
-                <Route exact path="/info" element={<Layout></Layout>} />
+                <Route path="/info" element={<Layout />} />
+                <Route path="*" element={<h1>404 sory</h1>} />
             </Routes>
         </div>
     );
