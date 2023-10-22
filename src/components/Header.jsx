@@ -82,7 +82,7 @@ export default function Header() {
                             <li
                                 className="flex items-center lg:mb-0 hover:cursor-pointer"
                                 onClick={() => {
-                                    handleNavigation("/");
+                                    handleNavigation("/vite-project");
                                 }}
                                 data-te-nav-item-ref
                             >
@@ -97,7 +97,7 @@ export default function Header() {
                                 className="flex items-center lg:mb-0 hover:cursor-pointer"
                                 data-te-nav-item-ref
                                 onClick={() => {
-                                    handleNavigation("/blog");
+                                    handleNavigation("/vite-project/blog");
                                 }}
                             >
                                 <a
@@ -111,7 +111,7 @@ export default function Header() {
                                 className="flex items-center lg:mb-0 hover:cursor-pointer"
                                 data-te-nav-item-ref
                                 onClick={() => {
-                                    handleNavigation("/projects");
+                                    handleNavigation("/vite-project/projects");
                                 }}
                             >
                                 <a
@@ -127,7 +127,7 @@ export default function Header() {
                                 className="flex items-center lg:mb-0 hover:cursor-pointer"
                                 data-te-nav-item-ref
                                 onClick={() => {
-                                    handleNavigation("/info");
+                                    handleNavigation("/vite-project/info");
                                 }}
                             >
                                 <a

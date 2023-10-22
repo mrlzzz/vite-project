@@ -40,7 +40,7 @@ const ProjectFlexbox = () => {
                     for rendering the <code>.md</code> files inside React{" "}
                     <span className="text-sm">
                         (btw. I have seen the <code>.mdx</code> markdown, but I
-                        didn't check it out yet).
+                        did not check it out yet).
                     </span>
                 </p>
                 <p>

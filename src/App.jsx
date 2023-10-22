@@ -69,10 +69,13 @@ function App() {
     return (
         <div className=" bg-slate-300">
             <Routes>
-                <Route path="/" element={<Layout />} />
-                <Route path="/blog" element={<Layout>{blogPostList}</Layout>} />
+                <Route path="/vite-project" element={<Layout />} />
                 <Route
-                    path="/projects"
+                    path="/vite-project/blog"
+                    element={<Layout>{blogPostList}</Layout>}
+                />
+                <Route
+                    path="/vite-project/projects"
                     element={<Layout>{projectsPostList}</Layout>}
                 />
                 {/* 
@@ -81,13 +84,13 @@ function App() {
                 {projectsData.map((e, index) => {
                     return (
                         <Route
-                            path={"/projects" + e.path}
+                            path={"/vite-project/projects" + e.path}
                             element={<Layout data={e} />}
                             key={index}
                         />
                     );
                 })}
-                <Route path="/info" element={<Layout />} />
+                <Route path="/vite-project/info" element={<Layout />} />
                 <Route path="*" element={<h1>404 sory</h1>} />
             </Routes>
         </div>

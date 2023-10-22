@@ -11,13 +11,13 @@ const ProjectContent = ({ children }) => {
     // Conditions for backgrond expansion on the `/project' route
 
     if (
-        path === "/projects" &&
+        path === "/vite-project/projects" &&
         (prevLocation === "/" || prevLocation === "/blog")
     ) {
         expand = true;
     }
 
-    if (path === "/projects") expand = true;
+    if (path === "/vite-project/projects") expand = true;
 
     return (
         //lg:w-2/3 sm:w-full - dont forget

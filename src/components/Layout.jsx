@@ -16,27 +16,29 @@ export default function Layout({ children, data }) {
 
     // It is still disgusting. With each new page, I cry a little. - 21/10/23
 
+    // `Layout`, more like `Router`
+
     let renderedPage = null;
 
     switch (location.pathname) {
-        case "/projects":
+        case "/vite-project/projects":
             renderedPage = <ProjectContent>{children}</ProjectContent>;
             break;
-        case "/projects/react-forms":
+        case "/vite-project/projects/react-forms":
             renderedPage = (
                 <Content>
                     <ProjectForm></ProjectForm>
                 </Content>
             );
             break;
-        case "/projects/flexbox":
+        case "/vite-project/projects/flexbox":
             renderedPage = (
                 <Content>
                     <ProjectFlexbox></ProjectFlexbox>
                 </Content>
             );
             break;
-        case "/blog":
+        case "/vite-project/blog":
             renderedPage = <Content data={data}>{children}</Content>;
             break;
         default:

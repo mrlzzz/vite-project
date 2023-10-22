@@ -1,6 +1,6 @@
 const Card = ({ projectsData }) => {
     return (
-        <a href={`/projects${projectsData.path}`}>
+        <a href={`/vite-project/projects${projectsData.path}`}>
             <div className="overflow-hidden h-60 w-96 bg-slate-400 p-4 mx-2 mb-4 shadow-md shadow-slate-700 duration-300 hover:bg-slate-300">
                 <h1 className="text-2xl font-bold text-gray-950">
                     {projectsData.title}

@@ -18,13 +18,13 @@ const Content = ({ children }) => {
     // This component is only here, cuz at the start I tried to do some fancy `page-expand` animation - 21/10/23
 
     if (
-        path === "/projects" &&
+        path === "/vite-project/projects" &&
         (prevLocation === "/" || prevLocation === "/blog")
     ) {
         expand = true;
     }
 
-    if (path === "/projects") expand = true;
+    if (path === "/vite-project/projects") expand = true;
 
     return (
         //lg:w-2/3 sm:w-full - dont forget
