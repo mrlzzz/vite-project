@@ -4,6 +4,8 @@
 
 ### 1.1 Basics
 
+&thinsp;
+
 `display: flex`
 
 - Defines a flex container; inline or block depending on the given value. It enables a flex context for all its direct children.
@@ -22,7 +24,11 @@
 
 - Shorthand for the `flex-direction` and `flex-wrap`.
 
+&thinsp;
+
 ### 1.2 Positioning
+
+&thinsp;
 
 ```
 justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right
@@ -42,7 +48,11 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 
 - Aligns a flex container’s lines within when there is extra space in the cross-axis (???), similar to how `justify-content` aligns individual items within the main-axis.
 
+&thinsp;
+
 ### 1.3 Difference between `align-items` and `align-content`
+
+&thinsp;
 
 - `align-content` is for multi line flexible boxes and determines the **spacing between lines**
   - When there is only one line, `align-content` has no effect
@@ -53,7 +63,11 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
   - `flex-line` is a row or a column of flex items in a flex container
 - `align-items` determines how the items as a whole are aligned within the container
 
+&thinsp;
+
 ### 1.4 Gap, row-gap, and column-gap
+
+&thinsp;
 
 ```sass
 gap: 10px;
@@ -65,7 +79,11 @@ column-gap: 20px;
 - `gap` controls the space between flex items.
 - It applies to spacing **only between items** not on the outer edges.
 
+&thinsp;
+
 ## 2. Properties for the Children (flex items)
+
+&thinsp;
 
 `order: 5; /* default is 0 */`
 
@@ -77,11 +95,23 @@ column-gap: 20px;
 - Defines the ability for a flex item to grow if necessary
 - It accepts a unitless value that serves as a proportion
 - It dictates what amount of the available space inside the flex container the item should take up
-- Sort of - if there is space left, `flex-grow` orders a priority of which items can take up the remaining space - The greater the value, the higher the priority
-  `flex-shrink: 3; /* default 1 */` - Defines the ability for a flex item to shrink if necessary. - Analogous to `flex-grow`
-  `flex-basis: | auto; /* default auto */`
-  Defines the default size of an element before the remaining space is distributed.
-  It can be a length (e.g. 20%, 5rem, etc.) or a keyword. - The `auto` keyword means “look at my width or height property” - The `content` keyword means “size it based on the item’s content” - This keyword isn’t well supported yet, so it’s hard to test and harder to know what its brethren `max-content`, `min-content` and `fit-content` do.
+- Sort of - if there is space left:
+  - `flex-grow` orders a priority of which items can take up the remaining space
+  - The greater the value, the higher the priority
+
+`flex-shrink: 3; /* default 1 */`
+
+- Defines the ability for a flex item to shrink if necessary.
+- Analogous to `flex-grow`
+
+`flex-basis: | auto; /* default auto */`
+
+Defines the default size of an element before the remaining space is distributed.
+It can be a length (e.g. 20%, 5rem, etc.) or a keyword.
+
+- The `auto` keyword means “look at my width or height property”
+- The `content` keyword means “size it based on the item’s content”
+- This keyword isn’t well supported yet, so it’s hard to test and harder to know what its brethren `max-content`, `min-content` and `fit-content` do.
 
 ```sass
 flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
@@ -94,4 +124,7 @@ flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
 - **It is recommended that you use this shorthand property** rather than set the individual properties. The shorthand sets the other values intelligently.
   - Ok dumb dumb.
 
-`align-self: auto | flex-start | flex-end | center | baseline | stretch;` - Allows the default alignment (or the one specified by `align-items`) to be overridden for individual flex items. - See the `align-items` explanation to understand the available values.
+`align-self: auto | flex-start | flex-end | center | baseline | stretch;`
+
+- Allows the default alignment (or the one specified by `align-items`) to be overridden for individual flex items.
+- See the `align-items` explanation to understand the available values.
