@@ -66,6 +66,7 @@ const ProjectForm = () => {
     register,
     handleSubmit,
     control,
+    setValue,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm({
     mode: "onTouched",
@@ -109,7 +110,7 @@ const ProjectForm = () => {
     <>
       {/* Info section - for each exercise. Probably should be a separate component */}
 
-      <section className="prose mx-4 mb-4 max-w-none bg-slate-400 p-8 text-slate-950 shadow-md lg:text-lg">
+      <section className="prose mx-8 mb-4 max-w-none bg-slate-400 p-8 text-slate-950 shadow-md lg:text-lg">
         <h1>Description</h1>
         <p>
           The following shows a form implemented using the{" "}
@@ -193,7 +194,7 @@ const ProjectForm = () => {
           )}
 
           <Form
-            className="flex flex-col lg:text-base [&>*]:p-2 [&>*]:placeholder:text-base [&>*]:placeholder:italic [&>label]:text-sm [&>label]:font-medium [&>label]:text-slate-700"
+            className=" flex flex-col lg:text-base [&>*]:p-2 [&>*]:placeholder:text-base [&>*]:placeholder:italic [&>label]:text-sm [&>label]:font-medium [&>label]:text-slate-700"
             onSubmit={handleSubmit(onSubmit)}
             control={control}
           >
@@ -272,9 +273,25 @@ const ProjectForm = () => {
             className="ml-8 bg-slate-400 px-2 py-1 text-base shadow-md active:bg-slate-300 active:shadow-lg"
             onClick={() => {
               console.log(control);
+              setValue("firstName", "Test");
+              setValue("secondName", "Test");
+              setValue("age", "25");
+              setValue("email", "test@test.com");
             }}
           >
             Fill up
+          </button>
+          <button
+            className="ml-8 bg-slate-400 px-2 py-1 text-base shadow-md active:bg-slate-300 active:shadow-lg"
+            onClick={() => {
+              console.log(control);
+              setValue("firstName", "");
+              setValue("secondName", "");
+              setValue("age", "");
+              setValue("email", "");
+            }}
+          >
+            Empty
           </button>
         </div>
       </div>

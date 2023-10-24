@@ -2,9 +2,22 @@ import "./App.css";
 import Layout from "./components/Layout";
 import Post from "./components/Post";
 import Card from "./components/Card";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log(location.pathname);
+
+    // Cleanup the listener when the component unmounts
+    // return () => {
+    //   unlisten();
+    // };
+  }, [location]);
+
   // Dummy data section. It will be switched to an API call in the future.
 
   const projectsData = [
@@ -21,6 +34,27 @@ function App() {
       date: new Date().toDateString(),
       desc: "Studying the flexbox while trying to render markdown notes",
       path: "/flexbox",
+    },
+    {
+      title: "Example",
+      subTitle: "Subtitle",
+      date: new Date().toDateString(),
+      desc: "Description",
+      path: "/example",
+    },
+    {
+      title: "Example",
+      subTitle: "Subtitle",
+      date: new Date().toDateString(),
+      desc: "Description",
+      path: "/example",
+    },
+    {
+      title: "Example",
+      subTitle: "Subtitle",
+      date: new Date().toDateString(),
+      desc: "Description",
+      path: "/example",
     },
     {
       title: "Example",

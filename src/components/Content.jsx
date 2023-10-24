@@ -31,12 +31,12 @@ const Content = ({ children }) => {
     <>
       <div
         ref={contentRef}
-        className={`expandable-page mx-auto flex min-h-screen flex-col justify-between bg-slate-500 py-4 sm:w-full lg:w-2/3
+        className={`expandable-page mx-auto flex h-fit min-h-screen flex-col justify-between bg-slate-500 py-8 sm:w-full lg:w-2/3
               ${expand ? "expanded-page" : "closed-page"}`}
       >
         {children}
         <a
-          className="my-4 ml-8 cursor-pointer self-start  bg-slate-400 px-2 py-1 text-sm tracking-tight hover:text-slate-700"
+          className="my-4 ml-8 cursor-pointer self-start bg-slate-400 px-2 py-1 text-sm tracking-tight hover:text-slate-700"
           onClick={() => {
             navigate(-1);
           }}
