@@ -5,18 +5,32 @@ import { Collapse, Dropdown, initTE } from "tw-elements";
 export default function Header() {
   initTE({ Collapse, Dropdown });
 
+  let location = useLocation();
+  let navigate = useNavigate();
+  // console.log(location.pathname);
+  const setInitialActiveLink = (path) => {
+    switch (path) {
+      case "/vite-project/projects":
+        return 2;
+      case "/vite-project/":
+        return 0;
+      case "/vite-project/blog":
+        return 1;
+      case "/vite-project/info":
+        return 3;
+    }
+  };
+
+  const initialActiveLink = setInitialActiveLink(location.pathname);
   // eslint-disable-next-line no-unused-vars
   const [isScrolling, setIsScrolling] = useState(false);
-  const [activeLink, setActiveLink] = useState(null);
+  const [activeLink, setActiveLink] = useState(initialActiveLink);
 
   const navRef = useRef(null);
 
-  let location = useLocation();
-  let navigate = useNavigate();
-
   const handleActiveLink = (index) => {
     if (activeLink === index) {
-      setActiveLink(null);
+      return;
     } else {
       setActiveLink(index);
     }
@@ -91,14 +105,16 @@ export default function Header() {
               <li
                 className="flex items-center hover:cursor-pointer lg:mb-0"
                 onClick={() => {
-                  handleNavigation("/vite-project");
+                  handleNavigation("/vite-project/");
                   handleActiveLink(0);
                 }}
                 data-te-nav-item-ref
               >
                 <a
                   className={`${
-                    activeLink === 0 ? "text-slate-200" : "text-slate-400"
+                    activeLink === 0
+                      ? "text-slate-200 underline decoration-red-300 decoration-2 underline-offset-[4px]"
+                      : "text-slate-400"
                   } w-screen px-3 py-2 text-sm font-medium tracking-tighter transition duration-200 hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
                   data-te-nav-link-ref
                 >
@@ -115,7 +131,9 @@ export default function Header() {
               >
                 <a
                   className={`${
-                    activeLink === 1 ? "text-slate-200" : "text-slate-400"
+                    activeLink === 1
+                      ? "text-slate-200 underline decoration-red-300 decoration-2 underline-offset-[4px]"
+                      : "text-slate-400"
                   } w-screen px-3 py-2 text-sm font-medium tracking-tighter   transition duration-200  hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
                   data-te-nav-link-ref
                 >
@@ -132,7 +150,9 @@ export default function Header() {
               >
                 <a
                   className={`${
-                    activeLink === 2 ? "text-slate-200" : "text-slate-400"
+                    activeLink === 2
+                      ? "text-slate-200 underline decoration-red-300 decoration-2 underline-offset-[4px]"
+                      : "text-slate-400"
                   } w-screen px-3 py-2 text-sm font-medium tracking-tighter   transition duration-200  hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
                   data-te-nav-link-ref
                 >
@@ -151,8 +171,10 @@ export default function Header() {
               >
                 <a
                   className={`${
-                    activeLink === 3 ? "text-slate-200" : "text-slate-400"
-                  } w-screen px-3 py-2 text-sm font-medium tracking-tighter   transition duration-200 hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
+                    activeLink === 3
+                      ? "text-slate-200 underline decoration-red-300 decoration-2 underline-offset-[4px]"
+                      : "text-slate-400"
+                  } w-screen px-3 py-2 text-sm font-medium tracking-tighter transition duration-200 hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
                   data-te-nav-link-ref
                 >
                   INFO

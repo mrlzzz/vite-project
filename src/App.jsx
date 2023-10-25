@@ -10,7 +10,6 @@ function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log(location.pathname);
 
     // Cleanup the listener when the component unmounts
     // return () => {
@@ -36,11 +35,11 @@ function App() {
       path: "/flexbox",
     },
     {
-      title: "Example",
-      subTitle: "Subtitle",
+      title: "Project API",
+      subTitle: "Fastify + mongodb + API calls",
       date: new Date().toDateString(),
-      desc: "Description",
-      path: "/example",
+      desc: "Fastify + mongodb + API calls",
+      path: "/api",
     },
     {
       title: "Example",

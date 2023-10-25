@@ -9,7 +9,7 @@ const HeartCheckbox = (props) => (
       {...props}
     />
     <svg
-      className="pointer-events-none absolute mt-1 h-4 w-4 fill-slate-400 stroke-white peer-checked:!fill-red-500 peer-hover:fill-slate-500"
+      className="pointer-events-none absolute mt-1 h-4 w-4 fill-slate-400 stroke-white peer-checked:!fill-red-300 peer-hover:fill-slate-500"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -272,7 +272,6 @@ const ProjectForm = () => {
           <button
             className="ml-8 bg-slate-400 px-2 py-1 text-base shadow-md active:bg-slate-300 active:shadow-lg"
             onClick={() => {
-              console.log(control);
               setValue("firstName", "Test");
               setValue("secondName", "Test");
               setValue("age", "25");
@@ -284,7 +283,6 @@ const ProjectForm = () => {
           <button
             className="ml-8 bg-slate-400 px-2 py-1 text-base shadow-md active:bg-slate-300 active:shadow-lg"
             onClick={() => {
-              console.log(control);
               setValue("firstName", "");
               setValue("secondName", "");
               setValue("age", "");

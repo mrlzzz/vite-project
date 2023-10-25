@@ -6,6 +6,7 @@ import ProjectForm from "./ProjectForm.jsx";
 import ProjectFlexbox from "./ProjectFlexbox.jsx";
 import InfoPage from "./InfoPage.jsx";
 import AboutPage from "./AboutPage.jsx";
+import ProjectAPI from "./ProjectAPI.jsx";
 import { useLocation } from "react-router-dom";
 
 export default function Layout({ children, data }) {
@@ -37,6 +38,13 @@ export default function Layout({ children, data }) {
       renderedPage = (
         <Content>
           <ProjectFlexbox></ProjectFlexbox>
+        </Content>
+      );
+      break;
+    case "/vite-project/projects/api":
+      renderedPage = (
+        <Content>
+          <ProjectAPI></ProjectAPI>
         </Content>
       );
       break;
