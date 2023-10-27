@@ -15,8 +15,8 @@ const ProjectFlexbox = () => {
 
   return (
     <>
-      <article className="shadow-m group prose mx-8 mb-8 max-w-none bg-slate-400 p-8 text-slate-950 lg:text-xl">
-        <h1>Description</h1>
+      <article className="shadow-m group prose mx-8 mb-8 max-w-none bg-slate-400 p-8 text-slate-950 lg:text-lg">
+        <h2>Description</h2>
         <section className="">
           <p>
             The following shows me trying to render a markdown file that I have
@@ -40,7 +40,7 @@ const ProjectFlexbox = () => {
           </div>
         </section>
       </article>
-      <Markdown className="prose mx-4 mb-4 ml-8 max-w-[50vw] bg-slate-400 p-8 shadow-md lg:prose-xl marker:text-slate-900">
+      <Markdown className="prose mx-4 mb-4 ml-8 max-w-[50vw] bg-slate-400 p-8 shadow-md lg:prose-lg marker:text-slate-900">
         {markdown}
       </Markdown>
     </>

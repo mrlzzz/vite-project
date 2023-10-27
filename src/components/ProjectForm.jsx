@@ -50,7 +50,11 @@ const ErrorFormMessage = ({ errorHandler, inputHandler }) => {
       break;
   }
   if (Object.keys(errorHandler).length !== 0 && message !== "") {
-    return <p className="bg-red-700 text-sm text-red-200">{message}</p>;
+    return (
+      <div className="bg-red-700 text-sm text-red-200">
+        <p>{message}</p>
+      </div>
+    );
   }
 };
 
@@ -111,7 +115,7 @@ const ProjectForm = () => {
       {/* Info section - for each exercise. Probably should be a separate component */}
 
       <section className="prose mx-8 mb-4 max-w-none bg-slate-400 p-8 text-slate-950 shadow-md lg:text-lg">
-        <h1>Description</h1>
+        <h2>Description</h2>
         <p>
           The following shows a form implemented using the{" "}
           <code className="text-slate-950">react-form-hook</code>. The hook

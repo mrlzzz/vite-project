@@ -1,4 +1,4 @@
-# Flexbox notes
+## Flexbox notes
 
 ## 1. Properties for the Parent (flex container)
 

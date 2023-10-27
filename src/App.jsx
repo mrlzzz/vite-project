@@ -6,7 +6,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 function App() {
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -15,7 +15,7 @@ function App() {
     // return () => {
     //   unlisten();
     // };
-  }, [location]);
+  }, []);
 
   // Dummy data section. It will be switched to an API call in the future.
 
