@@ -30,7 +30,7 @@ const AboutPage = () => {
               href="https://github.com/mrlzzz/vite-project"
             >
               https://github.com/mrlzzz/vite-project
-              <span className="block h-0.5 max-w-0 bg-red-300 transition-all duration-500 group-hover:max-w-full"></span>
+              <span className="block h-[1px] max-w-0 bg-red-300 transition-all duration-500 group-hover:max-w-full"></span>
             </a>
           </p>
         </section>
