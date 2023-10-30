@@ -255,7 +255,7 @@ const ProjectForm = () => {
             <label>Email</label>
             <input
               type="email"
-              placeholder="chuj@doe.com"
+              placeholder="john@doe.com"
               {...register("email", {
                 required: true,
                 pattern: /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/g,

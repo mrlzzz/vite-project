@@ -13,3 +13,8 @@
     - Use useState hook (useState)
     - Use state management library
         - Redux or MobX
+
+==============================================
+
+- Auto-animate
+- Make a markdown slideshow

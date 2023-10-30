@@ -8,6 +8,7 @@ import InfoPage from "./InfoPage.jsx";
 import AboutPage from "./AboutPage.jsx";
 import ProjectAPI from "./ProjectAPI.jsx";
 import { useLocation } from "react-router-dom";
+import ProjectAnimate from "./ProjectAnimate.jsx";
 
 export default function Layout({ children, data }) {
   let location = useLocation();
@@ -48,6 +49,13 @@ export default function Layout({ children, data }) {
         </Content>
       );
       break;
+    case "/vite-project/projects/animate":
+      renderedPage = (
+        <Content>
+          <ProjectAnimate></ProjectAnimate>
+        </Content>
+      );
+      break;
     case "/vite-project/blog":
       renderedPage = <Content data={data}>{children}</Content>;
       break;
@@ -65,6 +73,7 @@ export default function Layout({ children, data }) {
         </Content>
       );
       break;
+
     default:
       renderedPage = (
         <Content>

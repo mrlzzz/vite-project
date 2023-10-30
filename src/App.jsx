@@ -6,18 +6,16 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 function App() {
-  // const location = useLocation();
+  // Both `useEffect` and `useLocation` are used to scroll the view to the top after page re-render.
+  // I have no idea how `window` uses the `location` from the dependencies.
+  // I have no idea why the `location` has to be there. However, without it, it does not work.
 
+  const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [location]);
 
-    // Cleanup the listener when the component unmounts
-    // return () => {
-    //   unlisten();
-    // };
-  }, []);
-
-  // Dummy data section. It will be switched to an API call in the future.
+  // Dummy data section. It will be switched to an API/db in the future.
 
   const projectsData = [
     {
@@ -42,11 +40,11 @@ function App() {
       path: "/api",
     },
     {
-      title: "Example",
-      subTitle: "Subtitle",
+      title: "Animations",
+      subTitle: "Testing the auto-animate library",
       date: new Date().toDateString(),
       desc: "Description",
-      path: "/example",
+      path: "/animate",
     },
     {
       title: "Example",
