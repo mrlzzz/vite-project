@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import Markdown from "react-markdown";
 import file from "../markdown/Flexbox.md";
 
-//const markdown = "# Hi, *Pluto*!";
-
 const ProjectFlexbox = () => {
   const [markdown, setMarkdown] = useState("");
 

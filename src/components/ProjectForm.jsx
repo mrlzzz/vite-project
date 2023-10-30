@@ -183,6 +183,10 @@ const ProjectForm = () => {
           </ul>
         </div>
       </section>
+      <div className=" mb-8 mt-4 w-full self-center bg-slate-600 py-1 pr-10 text-right font-mono text-sm font-light italic text-slate-400">
+        {" "}
+        react-form-hook
+      </div>
       <div className="flex items-center justify-center">
         <div
           className={

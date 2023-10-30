@@ -130,16 +130,24 @@ const ProjectAPI = () => {
               The following shows React performing a <code>HTTP GET</code>{" "}
               request inside a <code>useEffect</code> hook. The request is sent
               to a local <code>fastify</code> instance. The reply body contains
-              a test <code>JSON</code> message.
+              a test <code>JSON</code> message. Due to locality of the{" "}
+              <code>fastify</code> application, this deployed example will not
+              work.
             </p>
             <ul className="list-disc marker:text-slate-900">
-              <li>animate the menu</li>
-              <li>more routes</li>
-              <li>connect to db</li>
-              <li>enable post requests</li>
+              <li>Animate the menu</li>
+              <li>More routes</li>
+              <li>
+                Connect to <code>mongoDb</code>
+              </li>
+              <li>Enable post requests</li>
             </ul>
           </section>
         </article>
+        <div className=" mb-4 mt-4 w-full self-center bg-slate-600 py-1 pr-10 text-right font-mono text-sm font-light italic text-slate-400">
+          {" "}
+          API calls
+        </div>
         <div className="mx-8 my-8 flex  gap-4">
           {/* <button
             className=" w-fit self-center bg-slate-300 px-4 py-2 font-mono text-base shadow-md active:bg-slate-200 active:shadow-lg"
