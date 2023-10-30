@@ -34,13 +34,24 @@ const ProjectFlexbox = () => {
               <li>
                 Use <code>react-markdown</code>
               </li>
-              <li>2asdasda</li>
-              <li>2asdasd</li>
+              <li>
+                Allow parsing markdown assets in vite. Add{" "}
+                <code>assetsInclude: [&quot;**/*.md&quot;]</code> in{" "}
+                <code>vite.config.js</code>,
+              </li>
+              <li>
+                Include file using <code>Fetch API</code> inside of a{" "}
+                <code>useEffect</code>
+              </li>
             </ol>
           </div>
         </section>
       </article>
-      <Markdown className="prose mx-8 mb-4  w-full max-w-full self-center bg-slate-400 p-8 shadow-md lg:prose-lg marker:text-slate-900 lg:max-w-[50vw]">
+      <div className=" w-full self-center bg-slate-600 py-1 pr-10 text-right font-mono text-sm font-light italic text-slate-400">
+        {" "}
+        ./markdown/flexbox.md
+      </div>
+      <Markdown className="prose mx-8 my-4  w-full max-w-full self-center bg-slate-400 p-8 shadow-md lg:prose-lg marker:text-slate-900 lg:max-w-[50vw]">
         {markdown}
       </Markdown>
     </>

@@ -33,6 +33,9 @@ const AboutPage = () => {
               <span className="block h-[1px] max-w-0 bg-red-300 transition-all duration-500 group-hover:max-w-full"></span>
             </a>
           </p>
+          <br></br>
+          <p className="text-justify text-base">Sincerely,</p>
+          <p className="text-justify text-base">Pawel</p>
         </section>
       </div>
     </>

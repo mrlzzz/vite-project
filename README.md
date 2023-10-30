@@ -1,3 +1,3 @@
 # React using vite
 
-Knowledge and exercise space leveraging _industry-standard_ tech.
+Knowledge and exercise space leveraging industry-standard tech.
