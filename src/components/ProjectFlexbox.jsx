@@ -40,7 +40,7 @@ const ProjectFlexbox = () => {
           </div>
         </section>
       </article>
-      <Markdown className="prose mx-4 mb-4 ml-8 max-w-[50vw] bg-slate-400 p-8 shadow-md lg:prose-lg marker:text-slate-900">
+      <Markdown className="prose mx-8 mb-4  w-full max-w-full self-center bg-slate-400 p-8 shadow-md lg:prose-lg marker:text-slate-900 lg:max-w-[50vw]">
         {markdown}
       </Markdown>
     </>

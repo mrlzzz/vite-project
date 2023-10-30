@@ -15,8 +15,8 @@ export default function Layout({ children, data }) {
 
   // The following `switch` solution is a band-aid on underlying faulty component/project structure.
   // Which is that for every new page I need a brand new, specialized "content" component -
-  // For this, I blame the fact that present Content component is too specific.
-  // Also, component structure sucks. Anyway, it's the first one. I got to work with what I have.
+  // For this, I blame the fact that present `Content` component is too specific.
+  // Also, component structure is bad. Anyway, it's the first one. I got to work with what I have.
 
   // It is still disgusting. With each new page, I cry a little. - 21/10/23
 
@@ -59,7 +59,7 @@ export default function Layout({ children, data }) {
     case "/vite-project/blog":
       renderedPage = <Content data={data}>{children}</Content>;
       break;
-    case "/vite-project":
+    case "/vite-project/":
       renderedPage = (
         <Content>
           <AboutPage></AboutPage>

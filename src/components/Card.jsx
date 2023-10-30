@@ -24,7 +24,7 @@ const Card = ({ projectsData }) => {
         }}
       >
         <div
-          className={`group max-h-[15rem] min-h-[15rem] min-w-[25rem] max-w-[25rem]  bg-slate-400 p-6 ${
+          className={`group max-h-[16rem] min-h-[16rem] min-w-[25rem] max-w-[25rem]  bg-slate-400 p-6 ${
             isCurrentLocation ? "opacity-100" : "opacity-50"
           } shadow-md shadow-slate-700 transition-all duration-300 ease-in-out hover:bg-slate-300`}
         >

@@ -47,24 +47,10 @@ function App() {
       path: "/animate",
     },
     {
-      title: "Example",
-      subTitle: "Subtitle",
+      title: "Example Placeholder",
+      subTitle: "Subtitle Placeholder",
       date: new Date().toDateString(),
-      desc: "Description",
-      path: "/example",
-    },
-    {
-      title: "Example",
-      subTitle: "Subtitle",
-      date: new Date().toDateString(),
-      desc: "Description",
-      path: "/example",
-    },
-    {
-      title: "Example",
-      subTitle: "Subtitle",
-      date: new Date().toDateString(),
-      desc: "Description",
+      desc: "Description Placeholder",
       path: "/example",
     },
   ];
@@ -110,8 +96,8 @@ function App() {
           element={<Layout>{projectsPostList}</Layout>}
         />
         {/* 
-                    The following dynamically creates any "/vite-project/projects" subroutes 
-                */}
+            The following dynamically creates any "/vite-project/projects" subroutes 
+        */}
         {projectsData.map((e, index) => {
           return (
             <Route

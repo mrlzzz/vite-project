@@ -31,7 +31,7 @@ const Content = ({ children }) => {
     <>
       <div
         ref={contentRef}
-        className={`expandable-page mx-auto flex h-fit min-h-screen flex-col justify-between bg-slate-500 py-8 sm:w-full lg:w-2/3
+        className={`expandable-page mx-auto flex h-fit min-h-screen flex-col justify-between bg-slate-500 py-4 sm:w-full lg:w-2/3
               ${expand ? "expanded-page" : "closed-page"}`}
       >
         {children}
