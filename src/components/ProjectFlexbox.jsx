@@ -1,15 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import autoAnimate from "@formkit/auto-animate";
 import Markdown from "react-markdown";
-import file from "../markdown/Flexbox.md";
+import mdFlexbox from "../markdown/Flexbox.md";
+import mdClosures from "../markdown/Closures.md";
+
+const markdownFiles = [mdFlexbox, mdClosures];
 
 const ProjectFlexbox = () => {
   const [markdown, setMarkdown] = useState("");
+  const [mdIndex, setMdIndex] = useState(0);
+  const parent = useRef(null);
 
   useEffect(() => {
-    fetch(file)
+    fetch(markdownFiles[mdIndex])
       .then((res) => res.text())
       .then((text) => setMarkdown(text));
-  }, []);
+
+    parent.current && autoAnimate(parent.current);
+  }, [mdIndex, parent]);
 
   return (
     <>
@@ -55,11 +63,22 @@ const ProjectFlexbox = () => {
       </article>
       <div className=" w-full self-center bg-slate-600 py-1 pr-10 text-right font-mono text-sm font-light italic text-slate-400">
         {" "}
-        ./markdown/flexbox.md
+        ./markdown/{mdIndex === 0 ? "flexbox" : "closures"}.md
       </div>
-      <Markdown className="prose mx-8 my-4  w-full max-w-full self-center bg-slate-400 p-8 shadow-md lg:prose-lg marker:text-slate-900 lg:max-w-[50vw]">
-        {markdown}
-      </Markdown>
+      <button
+        onClick={() => {
+          mdIndex === 0 ? setMdIndex(1) : setMdIndex(0);
+        }}
+        className="mt-4 w-fit self-center bg-slate-300 px-4 py-1 text-base transition-all hover:bg-slate-400 active:bg-slate-600"
+      >
+        Next file
+      </button>
+      <div
+        ref={parent}
+        className="mx-8 my-4 w-full  max-w-full self-center  bg-slate-400 p-8 shadow-md lg:prose-lg marker:text-slate-900 lg:max-w-[50vw]"
+      >
+        <Markdown className="prose ">{markdown}</Markdown>
+      </div>
     </>
   );
 };

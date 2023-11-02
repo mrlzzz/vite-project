@@ -1,25 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import autoAnimate from "@formkit/auto-animate";
 import "./styles/Post.css";
-
-{
-  /* <p
-  ref={hiddenRef}
-  className={` expandable-element text-lg tracking-tight text-gray-700 ${
-    isExpanded ? "expanded" : "closed"
-  }`}
-  >
-  {blogData.content}
-</p> */
-}
 
 const Post = ({ blogData }) => {
   const postRef = useRef(null);
   const hiddenRef = useRef(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [toast, showToast] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     postRef.current && autoAnimate(postRef.current);
@@ -27,14 +13,6 @@ const Post = ({ blogData }) => {
 
   function handleClick() {
     setIsExpanded(!isExpanded);
-
-    if (isExpanded) {
-      // hiddenRef.current.classList.remove("hidden");
-      // hiddenRef.current.classList.add("visible-content");
-    } else {
-      //hiddenRef.current.classList.remove("visible-content");
-      //hiddenRef.current.classList.add("hidden");
-    }
   }
 
   return (
@@ -57,9 +35,7 @@ const Post = ({ blogData }) => {
           {blogData.content}
           <div className="self-end">
             <button
-              onClick={() => {
-                showToast();
-              }}
+              onClick={() => {}}
               className="mr-4 mt-8  border-b border-gray-900 px-3 py-2 text-base font-light  transition-all hover:bg-gray-600  hover:text-gray-200 hover:shadow-lg active:bg-gray-500"
             >
               Read more &rarr;

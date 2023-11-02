@@ -85,7 +85,6 @@ function App() {
 
   return (
     <div className="bg-slate-300 lg:text-xl">
-      <div></div>
       <Routes>
         <Route path="/vite-project" element={<Layout />} />
         <Route
