@@ -10,7 +10,7 @@ import ProjectAPI from "./ProjectAPI.jsx";
 import { useLocation } from "react-router-dom";
 import ProjectAnimate from "./ProjectAnimate.jsx";
 
-export default function Layout({ children, data }) {
+export default function Layout({ children }) {
   let location = useLocation();
 
   // The following `switch` solution is a band-aid on underlying faulty component/project structure.
@@ -57,7 +57,7 @@ export default function Layout({ children, data }) {
       );
       break;
     case "/vite-project/blog":
-      renderedPage = <Content data={data}>{children}</Content>;
+      renderedPage = <Content>{children}</Content>;
       break;
     case "/vite-project/":
       renderedPage = (

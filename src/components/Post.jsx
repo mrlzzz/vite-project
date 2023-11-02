@@ -1,10 +1,29 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import autoAnimate from "@formkit/auto-animate";
 import "./styles/Post.css";
+
+{
+  /* <p
+  ref={hiddenRef}
+  className={` expandable-element text-lg tracking-tight text-gray-700 ${
+    isExpanded ? "expanded" : "closed"
+  }`}
+  >
+  {blogData.content}
+</p> */
+}
 
 const Post = ({ blogData }) => {
   const postRef = useRef(null);
   const hiddenRef = useRef(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [toast, showToast] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    postRef.current && autoAnimate(postRef.current);
+  }, [postRef]);
 
   function handleClick() {
     setIsExpanded(!isExpanded);
@@ -28,17 +47,26 @@ const Post = ({ blogData }) => {
       <hr className="my-1 border-slate-300" />
       <h2 className="text-lg text-gray-900">{blogData.subTitle}</h2>
       <span className="text-base text-gray-700">{blogData.date}</span>
-      <p className=" text-lg tracking-tight text-gray-700">
-        {blogData.content}
-      </p>
-      <p
-        ref={hiddenRef}
-        className={` expandable-element text-lg tracking-tight text-gray-700 ${
-          isExpanded ? "expanded" : "closed"
-        }`}
-      >
-        {blogData.content}
-      </p>
+      {!isExpanded && <p>...</p>}
+      {isExpanded && (
+        <div
+          ref={hiddenRef}
+          className={`flex flex-col text-lg tracking-tight text-gray-700`}
+        >
+          {blogData.content}
+          {blogData.content}
+          <div className="self-end">
+            <button
+              onClick={() => {
+                showToast();
+              }}
+              className="mr-4 mt-8  border-b border-gray-900 px-3 py-2 text-base font-light  transition-all hover:bg-gray-600  hover:text-gray-200 hover:shadow-lg active:bg-gray-500"
+            >
+              Read more &rarr;
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

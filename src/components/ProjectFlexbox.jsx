@@ -24,13 +24,13 @@ const ProjectFlexbox = () => {
             <code>.md</code> files inside React (btw. I have seen the{" "}
             <code>.mdx</code> markdown, but I did not check it out yet). Also,
             Tailwind provides a <code>@tailwindcss/typography</code> plugin,
-            which can help me to style the markdown content.
+            which can help me to dynamically style the markdown content.
           </p>
           <div>
             <i>22/10/23</i> - IT WORKS, no vite plugins needed!. So to do it
             <ol className="list-decimal">
               <li>
-                Use <code>react-markdown</code>
+                Import <code>react-markdown</code>
               </li>
               <li>
                 Allow parsing markdown assets in vite. Add{" "}
@@ -40,6 +40,14 @@ const ProjectFlexbox = () => {
               <li>
                 Include file using <code>Fetch API</code> inside of a{" "}
                 <code>useEffect</code>
+              </li>
+              <li>
+                Render the file as a child of <code>Markdown</code> component
+                from the <code>react-markdown</code>
+              </li>
+              <li>
+                TODO: I want to render a few markdown files and present them
+                below as carousel
               </li>
             </ol>
           </div>

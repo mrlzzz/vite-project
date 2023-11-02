@@ -1,18 +1,26 @@
+import autoAnimate from "@formkit/auto-animate";
+import { useRef, useEffect } from "react";
+
 const AboutPage = () => {
+  const parent = useRef(null);
+  useEffect(() => {
+    parent.current && autoAnimate(parent.current);
+  }, [parent]);
+
   return (
     <>
-      <div className="flex h-fit min-h-screen w-full">
+      <div ref={parent} className="flex h-fit min-h-screen w-full">
         <section className="h-fit border-b-2 border-t-2 border-slate-400 bg-slate-700 p-20 font-light text-slate-200  shadow-lg  md:mx-28 md:mt-10 lg:mx-28 lg:mt-10">
           <h1>Hey!</h1>
           <br></br>
           <p className="text-justify text-lg">
             This website is a space, which I use to implement concepts that
             I&apos;ve learnt throughout my studies of React, JavaScript and
-            anything related or interesting to me like working with API calls,
-            CSS flexbox, markdown files, or animations. I try to describe each
-            example with my thought process, potential improvements, and little
-            hacks that have been necesssary to make it work - mostly addressed
-            to future me.
+            anything related or interesting to me - like, working with API
+            calls, CSS flexbox, markdown files, or animations. I try to describe
+            each example with my thought process, potential improvements, and
+            little hacks that have been necesssary to make it work - mostly
+            addressed to future me.
           </p>
           <br></br>
           <p className="text-justify text-lg">

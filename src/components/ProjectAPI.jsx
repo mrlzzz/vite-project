@@ -130,18 +130,24 @@ const ProjectAPI = () => {
               The following shows React performing a <code>HTTP GET</code>{" "}
               request inside a <code>useEffect</code> hook. The request is sent
               to a local <code>fastify</code> instance. The reply body contains
-              a test <code>JSON</code> message. Due to locality of the{" "}
-              <code>fastify</code> application, this deployed example will not
-              work.
+              a test <code>JSON</code> message.{" "}
+              <span className="block w-fit bg-red-300 px-2">
+                Due to locality of the <code>fastify</code> application, this
+                deployed example will not work at the moment.
+              </span>
             </p>
-            <ul className="list-disc marker:text-slate-900">
+            <ol className="list-decimal marker:text-slate-600">
               <li>Animate the menu</li>
-              <li>More routes</li>
+              <li>Add more routes</li>
               <li>
                 Connect to <code>mongoDb</code>
               </li>
               <li>Enable post requests</li>
-            </ul>
+              <li>
+                Deploy server-side code to serverless environment - either{" "}
+                <code>Cloudflare Workers</code> or <code>Vercel</code>
+              </li>
+            </ol>
           </section>
         </article>
         <div className=" mb-4 mt-4 w-full self-center bg-slate-600 py-1 pr-10 text-right font-mono text-sm font-light italic text-slate-400">
