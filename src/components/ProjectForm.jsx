@@ -1,7 +1,6 @@
 import { useForm, Form } from "react-hook-form";
 import { useState, useContext } from "react";
 import { ToastContext } from "../context/ToastContext";
-import ToastMessage from "./ToastMessage";
 
 const HeartCheckbox = (props) => (
   <span className="flex gap-2">
@@ -106,26 +105,18 @@ const ProjectForm = () => {
         // Handle success
         console.log("Data sent successfully");
         addToast(
-          <ToastMessage type={"success"} title={"Data sent successfully!"}>
-            Data sent successfully!
-          </ToastMessage>,
+          "success",
+          "Data sent successfully!",
+          "Data sent successfully!",
         );
       } else {
         // Handle errors
         console.error("Error sending data");
-        addToast(
-          <ToastMessage type={"error"} title={"Error sending data"}>
-            Error sending data
-          </ToastMessage>,
-        );
+        addToast("error", "Error sending data", "Error sending data");
       }
     } catch (error) {
       console.error("Network error: ", error);
-      addToast(
-        <ToastMessage type={"error"} title={"Network error"}>
-          {error.toString()}
-        </ToastMessage>,
-      );
+      addToast("error", "Network error", error.toString());
     }
   };
 

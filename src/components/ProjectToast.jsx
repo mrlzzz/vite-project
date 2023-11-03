@@ -1,6 +1,5 @@
 import { ToastContext } from "../context/ToastContext";
 import { useContext } from "react";
-import ToastMessage from "./ToastMessage";
 
 const ProjectToast = () => {
   const { addToast, setToasts } = useContext(ToastContext);
@@ -32,11 +31,7 @@ const ProjectToast = () => {
           <button
             className={buttonClass}
             onClick={() => {
-              addToast(
-                <ToastMessage title="Error message" type="error">
-                  Error message example
-                </ToastMessage>,
-              );
+              addToast("error", "Error message", "Error message example");
             }}
           >
             Error message
@@ -44,11 +39,7 @@ const ProjectToast = () => {
           <button
             className={buttonClass}
             onClick={() => {
-              addToast(
-                <ToastMessage title="Success message" type="success">
-                  Success message example
-                </ToastMessage>,
-              );
+              addToast("success", "Success message", "Success message example");
             }}
           >
             Success message
@@ -56,11 +47,7 @@ const ProjectToast = () => {
           <button
             className={buttonClass}
             onClick={() => {
-              addToast(
-                <ToastMessage title={"Info message"} type={"info"}>
-                  Info message example
-                </ToastMessage>,
-              );
+              addToast("info", "Info message", "Info message example");
             }}
           >
             Info message

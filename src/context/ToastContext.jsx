@@ -8,6 +8,7 @@
 // the `useEffect` will remove the first element from after some time - FIFO.
 
 import { createContext, useState, useEffect } from "react";
+import ToastMessage from "../components/ToastMessage";
 
 export const ToastContext = createContext(null);
 
@@ -20,7 +21,7 @@ const ToastProvider = ({ children }) => {
         const updatedToasts = toasts.slice(1); // Remove the first toast
         setToasts(updatedToasts);
       }
-    }, 2000); // 3000 milliseconds (3 seconds)
+    }, 2000);
 
     // Clear the timeout when the component unmounts or when toasts change
     return () => {
@@ -28,23 +29,41 @@ const ToastProvider = ({ children }) => {
     };
   }, [toasts]);
 
-  const addToast = (message) => {
-    setToasts([...toasts, message]); // 5000 milliseconds (5 seconds)
+  const addToast = (type, title, message) => {
+    const toastKey = crypto.randomUUID();
+    const removeToast = () => {
+      setToasts((prevToasts) =>
+        prevToasts.filter((toast) => toast.key !== toastKey),
+      );
+      console.log("clicked");
+    };
+    setToasts([
+      ...toasts,
+      <ToastMessage
+        key={toastKey}
+        dataKey={toastKey}
+        type={type}
+        title={title}
+        removeToast={removeToast}
+      >
+        {message}
+      </ToastMessage>,
+    ]);
   };
 
-  const removeToast = (index) => {
-    const updatedToasts = [...toasts];
-    updatedToasts.splice(index, 1);
-    setToasts(updatedToasts);
-    console.log(toasts);
-  };
+  // const removeToast = (index) => {
+  //   const updatedToasts = [...toasts];
+  //   updatedToasts.splice(index, 1);
+  //   setToasts(updatedToasts);
+  //   console.log(toasts);
+  // };
 
   // This gets exposed to componenets using the context
   const contextValue = {
     toasts,
     setToasts,
     addToast,
-    removeToast,
+    //removeToast,
   };
 
   return (

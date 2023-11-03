@@ -48,9 +48,9 @@ const Post = ({ blogData }) => {
             <button
               onClick={() => {
                 addToast(
-                  <ToastMessage title={"Error from the Blog"} type={"error"}>
-                    Functionality not implemented at the moment.
-                  </ToastMessage>,
+                  "error",
+                  "Error from the Blog",
+                  "Functionality not implemented at the moment.",
                 );
               }}
               className="mr-4 mt-8  border-y border-gray-900 px-3 py-1 text-base font-light  transition-all hover:bg-gray-600  hover:text-gray-200 hover:shadow-lg active:bg-gray-500"
