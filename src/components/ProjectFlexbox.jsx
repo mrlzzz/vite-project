@@ -69,15 +69,15 @@ const ProjectFlexbox = () => {
         onClick={() => {
           mdIndex === 0 ? setMdIndex(1) : setMdIndex(0);
         }}
-        className="mt-4 w-fit self-center bg-slate-300 px-4 py-1 text-base transition-all hover:bg-slate-400 active:bg-slate-600"
+        className="mt-4 w-fit self-center bg-slate-300 px-4 py-1 font-mono text-sm font-semibold uppercase text-slate-700 transition-all hover:bg-slate-400 active:bg-slate-600"
       >
-        Next file
+        Next file &rarr;
       </button>
       <div
         ref={parent}
-        className="mx-8 my-4 w-full  max-w-full self-center  bg-slate-400 p-8 shadow-md lg:prose-lg marker:text-slate-900 lg:max-w-[50vw]"
+        className="mx-8 my-4 w-full  max-w-full self-center bg-slate-400  px-8 py-8 shadow-md lg:prose-lg marker:text-slate-900  lg:max-w-[50vw]"
       >
-        <Markdown className="prose ">{markdown}</Markdown>
+        <Markdown className="prose w-full max-w-full">{markdown}</Markdown>
       </div>
     </>
   );

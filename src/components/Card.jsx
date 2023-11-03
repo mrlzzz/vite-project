@@ -6,14 +6,6 @@ const Card = ({ projectsData }) => {
   let location = useLocation();
   let isCurrentLocation = "false";
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     isCurrentLocation = "true";
-  //     console.log("timeout changed");
-  //   }, 100);
-  //   return () => clearTimeout(timer);
-  // }, []);
-
   const path = `/vite-project/projects${projectsData.path}`;
 
   return (

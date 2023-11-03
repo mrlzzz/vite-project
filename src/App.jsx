@@ -3,7 +3,8 @@ import Layout from "./components/Layout";
 import Post from "./components/Post";
 import Card from "./components/Card";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { ToastContext } from "./context/ToastContext";
 
 function App() {
   // Both `useEffect` and `useLocation` are used to scroll the view to the top after page re-render.
@@ -47,10 +48,17 @@ function App() {
       path: "/animate",
     },
     {
-      title: "Example Placeholder",
-      subTitle: "Subtitle Placeholder",
+      title: "Toast Notifications",
+      subTitle: "Custom built toast notification system",
       date: new Date().toDateString(),
-      desc: "Description Placeholder",
+      desc: "Custom built toast notification system",
+      path: "/toast",
+    },
+    {
+      title: "Placeholder",
+      subTitle: "Placeholder",
+      date: new Date().toDateString(),
+      desc: "Placeholder",
       path: "/example",
     },
   ];
