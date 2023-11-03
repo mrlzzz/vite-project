@@ -1,5 +1,7 @@
 import { useForm, Form } from "react-hook-form";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ToastContext } from "../context/ToastContext";
+import ToastMessage from "./ToastMessage";
 
 const HeartCheckbox = (props) => (
   <span className="flex gap-2">
@@ -76,6 +78,8 @@ const ProjectForm = () => {
     mode: "onTouched",
   });
 
+  const { addToast } = useContext(ToastContext);
+
   const handleToggle = (id) => {
     const updatedToggle = toggledIds.map((item) => {
       if (item.id === id) {
@@ -101,12 +105,27 @@ const ProjectForm = () => {
       if (response.ok) {
         // Handle success
         console.log("Data sent successfully");
+        addToast(
+          <ToastMessage type={"success"} title={"Data sent successfully!"}>
+            Data sent successfully!
+          </ToastMessage>,
+        );
       } else {
         // Handle errors
         console.error("Error sending data");
+        addToast(
+          <ToastMessage type={"error"} title={"Error sending data"}>
+            Error sending data
+          </ToastMessage>,
+        );
       }
     } catch (error) {
       console.error("Network error: ", error);
+      addToast(
+        <ToastMessage type={"error"} title={"Network error"}>
+          {error.toString()}
+        </ToastMessage>,
+      );
     }
   };
 
@@ -195,7 +214,7 @@ const ProjectForm = () => {
         >
           {isSubmitSuccessful ? (
             <div className="bg-green-700 p-2 text-sm text-green-200">
-              Data sent!
+              Data sent! (Deprecated due to Toast Notifications)
             </div>
           ) : (
             ""

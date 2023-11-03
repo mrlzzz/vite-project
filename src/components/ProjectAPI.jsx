@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import { ToastContext } from "../context/ToastContext";
+import ToastMessage from "./ToastMessage";
 // import Dropdown from "./Dropdown";
 import autoAnimate from "@formkit/auto-animate";
 
@@ -12,6 +14,7 @@ const ProjectAPI = () => {
   const [currentRequest, setCurrentRequest] = useState("");
   const payloadRef = useRef(null);
   const parent = useRef(null);
+  const { addToast } = useContext(ToastContext);
 
   useEffect(() => {
     parent.current && autoAnimate(parent.current);
@@ -31,11 +34,26 @@ const ProjectAPI = () => {
         const result = await response.json();
         if (response.ok) {
           setData(result);
+          addToast(
+            <ToastMessage type={"success"} title={"Data sent successfully"}>
+              Data: {result.toString()}
+            </ToastMessage>,
+          );
         } else {
           setData(result);
+          addToast(
+            <ToastMessage type={"error"} title={"Result not ok"}>
+              Result: {result.toString()}
+            </ToastMessage>,
+          );
         }
         setIsLoading(false);
       } catch (error) {
+        addToast(
+          <ToastMessage type={"error"} title={"Network error"}>
+            {error.toString()}
+          </ToastMessage>,
+        );
         setErrorMessage(error);
         setIsLoading(false);
       }
@@ -57,11 +75,26 @@ const ProjectAPI = () => {
         const result = await response.json();
         if (response.ok) {
           setData(result);
+          addToast(
+            <ToastMessage type={"success"} title={"Data sent successfully"}>
+              Data: {result.toString()}
+            </ToastMessage>,
+          );
         } else {
           setData(result);
+          addToast(
+            <ToastMessage type={"error"} title={"Result not ok"}>
+              Result: {result.toString()}
+            </ToastMessage>,
+          );
         }
       } catch (error) {
         setErrorMessage(error);
+        addToast(
+          <ToastMessage type={"error"} title={"Network error"}>
+            {error.toString()}
+          </ToastMessage>,
+        );
       }
     }
   };
