@@ -3,9 +3,22 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import "./styles/Content.css";
 
+const BackButton = () => {
+  let navigate = useNavigate();
+  return (
+    <a
+      className="ml-2 mt-4 cursor-pointer self-start bg-slate-400 px-2 py-1 text-sm tracking-tight hover:text-slate-700 lg:my-4 lg:ml-8"
+      onClick={() => {
+        navigate(-1);
+      }}
+    >
+      &larr; Go back
+    </a>
+  );
+};
+
 const Content = ({ children }) => {
   const contentRef = useRef(null);
-  let navigate = useNavigate();
   let prevLocation = useLocation().state;
   let location = useLocation();
   let path = location.pathname;
@@ -35,14 +48,7 @@ const Content = ({ children }) => {
               ${expand ? "expanded-page" : "closed-page"}`}
       >
         {children}
-        <a
-          className="my-4 ml-8 cursor-pointer self-start bg-slate-400 px-2 py-1 text-sm tracking-tight hover:text-slate-700"
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          &larr; Go back
-        </a>
+        {path !== "/vite-project/" ? <BackButton></BackButton> : null}
       </div>
     </>
   );

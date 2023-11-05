@@ -1,9 +1,9 @@
 const Footer = () => {
-    return (
-        <footer className="w-full h-40 bg-slate-700 flex items-center justify-center">
-            <span className=" text-slate-300 font-thin text-xs">@mrl</span>
-        </footer>
-    );
+  return (
+    <footer className="flex h-40 w-full items-center justify-center bg-slate-700">
+      <span className=" text-xs font-thin text-slate-300">@mrl</span>
+    </footer>
+  );
 };
 
 export default Footer;

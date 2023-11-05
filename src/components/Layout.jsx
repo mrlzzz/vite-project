@@ -20,6 +20,7 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 export default function Layout({ children }) {
   const { toasts } = useContext(ToastContext);
   const [parent] = useAutoAnimate();
+
   // const parentAnimate = useRef(null);
   let location = useLocation();
 
@@ -111,7 +112,7 @@ export default function Layout({ children }) {
       {renderedPage}
       <div
         ref={parent}
-        className="fixed bottom-10 ml-10 flex min-w-[20rem] flex-col transition-all"
+        className="fixed bottom-2 left-2 flex h-fit w-fit  flex-col lg:bottom-8 lg:left-8 "
       >
         {toasts}
       </div>

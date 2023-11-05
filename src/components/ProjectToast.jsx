@@ -19,7 +19,7 @@ const ProjectToast = () => {
               </li>
               <li>Add ability to close the toast</li>
               <li>Add and export standarized set of messages</li>
-              <li>Fix junky animations</li>
+              <li>Fix clipping animations</li>
             </ol>
           </section>
         </article>

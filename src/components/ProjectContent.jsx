@@ -23,10 +23,10 @@ const ProjectContent = ({ children }) => {
     //lg:w-2/3 sm:w-full - dont forget
     <div
       ref={contentRef}
-      className={` expandable-page mx-auto flex h-fit min-h-screen bg-slate-500 py-8 transition-all sm:w-full lg:w-2/3
+      className={` expandable-page mx-auto flex h-fit min-h-screen bg-slate-500 transition-all sm:w-full lg:w-2/3 lg:py-8
               ${expand ? "expanded-page" : "closed-page"}`}
     >
-      <div className="mx-8 flex flex-row flex-wrap content-start justify-center gap-6  border-black ">
+      <div className="flex flex-row flex-wrap content-start justify-center gap-1 border-black lg:mx-8  lg:gap-6 ">
         {children}
       </div>
     </div>

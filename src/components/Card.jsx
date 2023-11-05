@@ -5,6 +5,24 @@ const Card = ({ projectsData }) => {
   const navigate = useNavigate();
   let location = useLocation();
   let isCurrentLocation = "false";
+  let status = projectsData.status;
+  let statusBackgroundColor = "";
+  let statusIcon = "";
+  switch (status) {
+    case "Done":
+      statusBackgroundColor = "bg-green-600";
+      statusIcon = "";
+      break;
+    case "In Progress":
+      statusBackgroundColor = "bg-yellow-600";
+      statusIcon = "";
+      break;
+    case "Placeholder":
+      statusBackgroundColor = "bg-gray-600";
+      statusIcon = "";
+      break;
+    default:
+  }
 
   const path = `/vite-project/projects${projectsData.path}`;
 
@@ -16,19 +34,35 @@ const Card = ({ projectsData }) => {
         }}
       >
         <div
-          className={`group max-h-[16rem] min-h-[16rem] min-w-[25rem] max-w-[25rem]  bg-slate-400 p-6 ${
+          className={`group flex max-h-[18rem] min-h-[18rem] min-w-[25rem] max-w-[25rem] flex-col justify-between bg-slate-400 p-3 lg:min-w-[25rem] lg:p-6 ${
             isCurrentLocation ? "opacity-100" : "opacity-50"
           } shadow-md shadow-slate-700 transition-all duration-300 ease-in-out hover:bg-slate-300`}
         >
-          <h1 className="text-2xl font-bold text-gray-950">
-            {projectsData.title}
-          </h1>
-          <hr className="my-1 border-slate-300 group-hover:border-slate-400" />
-          <h2 className="text-lg text-gray-900">{projectsData.subTitle}</h2>
-          <span className="text-sm text-gray-700">{projectsData.date}</span>
-          <p className=" text-base tracking-tight text-gray-700">
-            {projectsData.desc}
-          </p>
+          {" "}
+          <div>
+            <h1 className="text-2xl font-bold text-gray-950">
+              {projectsData.title}
+            </h1>
+            <hr className="my-1 border-slate-300 group-hover:border-slate-400" />
+            <h2 className="text-lg text-gray-900">{projectsData.subTitle}</h2>
+
+            <p className=" text-base tracking-tight text-gray-700">
+              {projectsData.desc}
+            </p>
+          </div>
+          <div className="text-right">
+            <span className=" bg-slate-500 px-2 py-1 text-right text-xs font-medium uppercase tracking-tighter text-slate-300 ">
+              Status
+            </span>
+            <span className={`mt-1 text-xs`}>
+              <span
+                className={`${statusBackgroundColor} px-2 py-1 text-slate-200`}
+              >
+                {status}
+              </span>
+              {statusIcon}
+            </span>
+          </div>
         </div>
       </a>
     </>

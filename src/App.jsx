@@ -3,9 +3,7 @@ import Layout from "./components/Layout";
 import Post from "./components/Post";
 import Card from "./components/Card";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useEffect, useContext } from "react";
-import { ToastContext } from "./context/ToastContext";
-
+import { useEffect } from "react";
 function App() {
   // Both `useEffect` and `useLocation` are used to scroll the view to the top after page re-render.
   // I have no idea how `window` uses the `location` from the dependencies.
@@ -22,42 +20,42 @@ function App() {
     {
       title: "React-form-hook",
       subTitle: "Using the hook!",
-      date: new Date().toDateString(),
+      status: "Done",
       desc: "Learning how to properly handle forms in React. There is many ways of handling that natively using state, context and reducer functions. Although, I've heard it's a great hussle to do it properly. So why not use the hook goodies?",
       path: "/react-forms",
     },
     {
       title: "Flexdown lesson",
       subTitle: "Flexbox x markdown",
-      date: new Date().toDateString(),
+      status: "Done",
       desc: "Studying the flexbox while trying to render markdown notes",
       path: "/flexbox",
     },
     {
       title: "Project API",
       subTitle: "Fastify + mongodb + API calls",
-      date: new Date().toDateString(),
+      status: "In Progress",
       desc: "Fastify + mongodb + API calls",
       path: "/api",
     },
-    {
-      title: "Animations",
-      subTitle: "Testing the auto-animate library",
-      date: new Date().toDateString(),
-      desc: "Description",
-      path: "/animate",
-    },
+    // {
+    //   title: "Animations",
+    //   subTitle: "Testing the auto-animate library",
+    //   status: "In Progress",
+    //   desc: "Description",
+    //   path: "/animate",
+    // },
     {
       title: "Toast Notifications",
       subTitle: "Custom built toast notification system",
-      date: new Date().toDateString(),
+      status: "Done",
       desc: "Custom built toast notification system",
       path: "/toast",
     },
     {
       title: "Placeholder",
       subTitle: "Placeholder",
-      date: new Date().toDateString(),
+      status: "Placeholder",
       desc: "Placeholder",
       path: "/example",
     },

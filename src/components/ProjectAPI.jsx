@@ -34,26 +34,14 @@ const ProjectAPI = () => {
         const result = await response.json();
         if (response.ok) {
           setData(result);
-          addToast(
-            <ToastMessage type={"success"} title={"Data sent successfully"}>
-              Data: {result.toString()}
-            </ToastMessage>,
-          );
+          addToast("success", "Data sent successfully", result.toString());
         } else {
           setData(result);
-          addToast(
-            <ToastMessage type={"error"} title={"Result not ok"}>
-              Result: {result.toString()}
-            </ToastMessage>,
-          );
+          addToast("error", "Result not ok", result.toString());
         }
         setIsLoading(false);
       } catch (error) {
-        addToast(
-          <ToastMessage type={"error"} title={"Network error"}>
-            {error.toString()}
-          </ToastMessage>,
-        );
+        addToast("error", "Network error", error.toString());
         setErrorMessage(error);
         setIsLoading(false);
       }
@@ -75,26 +63,14 @@ const ProjectAPI = () => {
         const result = await response.json();
         if (response.ok) {
           setData(result);
-          addToast(
-            <ToastMessage type={"success"} title={"Data sent successfully"}>
-              Data: {result.toString()}
-            </ToastMessage>,
-          );
+          addToast("success", "Data sent successfully", result.toString());
         } else {
           setData(result);
-          addToast(
-            <ToastMessage type={"error"} title={"Result not ok"}>
-              Result: {result.toString()}
-            </ToastMessage>,
-          );
+          addToast("error", "Result not ok", result.toString());
         }
       } catch (error) {
         setErrorMessage(error);
-        addToast(
-          <ToastMessage type={"error"} title={"Network error"}>
-            {error.toString()}
-          </ToastMessage>,
-        );
+        addToast("error", "Network error", error.toString());
       }
     }
   };

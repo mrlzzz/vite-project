@@ -1,7 +1,7 @@
 const InfoPage = () => {
   return (
     <div className="flex h-[70vh] items-center justify-center  font-mono text-sm text-slate-300">
-      <div className="flex items-center rounded-lg bg-slate-700 pl-6 shadow-md">
+      <div className="m-1 flex items-center rounded-lg bg-slate-700 pl-6 shadow-md">
         <span className="block">
           <code className="">
             &gt; react(vite), tailwindCSS, gh-pages, fastify, mongodb
