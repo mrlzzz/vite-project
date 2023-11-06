@@ -49,7 +49,7 @@ function App() {
       title: "Toast Notifications",
       subTitle: "Custom built toast notification system",
       status: "Done",
-      desc: "Custom built toast notification system",
+      desc: "Custom toast message system built using React's context, state and useEffect. Customizable and available to any component.",
       path: "/toast",
     },
     {

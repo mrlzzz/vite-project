@@ -65,19 +65,31 @@ const ProjectFlexbox = () => {
         {" "}
         ./markdown/{mdIndex === 0 ? "flexbox" : "closures"}.md
       </div>
-      <button
-        onClick={() => {
-          mdIndex === 0 ? setMdIndex(1) : setMdIndex(0);
-        }}
-        className="mt-4 w-fit self-center bg-slate-300 px-4 py-1 font-mono text-sm font-semibold uppercase text-slate-700 transition-all hover:bg-slate-400 active:bg-slate-600"
-      >
-        Next file &rarr;
-      </button>
+      <div className="sticky top-1 z-50 mt-4 flex justify-center font-mono text-sm font-semibold">
+        <button
+          onClick={() => {
+            mdIndex === 0 ? setMdIndex(1) : setMdIndex(0);
+            parent.current.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }}
+          className="peer w-fit  bg-slate-300 px-4 uppercase  text-slate-700 transition-all lg:py-1 lg:hover:bg-slate-400 lg:active:bg-slate-600"
+        >
+          Next file &rarr;
+        </button>
+        <div className="ml-2 bg-slate-700 px-4 text-slate-300 transition-all duration-300 ease-in-out peer-hover:scale-100 peer-hover:opacity-100 lg:scale-90 lg:py-1 lg:opacity-0">
+          {mdIndex === 0 ? "closures.md" : "flexbox.md"}
+        </div>
+      </div>
+
       <div
         ref={parent}
-        className="mx-2 my-4 w-full  max-w-full self-center bg-slate-400  p-4 shadow-md lg:prose-lg marker:text-slate-900 lg:mx-8 lg:max-w-[50vw] lg:px-8  lg:py-8"
+        className="mx-2 my-4 w-full  max-w-full self-center bg-slate-400  p-4 shadow-md lg:prose-lg marker:text-slate-900 lg:mx-8 lg:max-w-[50vw] lg:px-8"
       >
-        <Markdown className="prose w-full max-w-full">{markdown}</Markdown>
+        <Markdown className="prose prose-slate w-full max-w-full py-4 lg:py-0">
+          {markdown}
+        </Markdown>
       </div>
     </>
   );
