@@ -132,7 +132,7 @@ const ProjectAPI = () => {
   return (
     <>
       <div className="flex flex-col">
-        <article className="shadow-m group prose mx-8 mb-8 max-w-none bg-slate-400 p-8 text-lg text-slate-950">
+        <article className="shadow-m group prose mx-2 mb-8 max-w-none bg-slate-400 p-4 text-base text-slate-950 lg:mx-8 lg:p-8 lg:text-lg">
           <h2>Description</h2>
           <section className="">
             <p>
@@ -159,11 +159,11 @@ const ProjectAPI = () => {
             </ol>
           </section>
         </article>
-        <div className=" mb-4 mt-4 w-full self-center bg-slate-600 py-1 pr-10 text-right font-mono text-sm font-light italic text-slate-400">
+        <div className=" mb-4 mt-4 w-full self-center bg-slate-600 py-1 pr-2 text-right font-mono text-sm font-light italic text-slate-400 lg:pr-10">
           {" "}
           API calls
         </div>
-        <div className="mx-8 my-8 flex  gap-4">
+        <div className="mx-2 my-8 flex flex-col gap-4  lg:mx-8 lg:flex-row">
           {/* <button
             className=" w-fit self-center bg-slate-300 px-4 py-2 font-mono text-base shadow-md active:bg-slate-200 active:shadow-lg"
             onClick={() => {
@@ -172,9 +172,9 @@ const ProjectAPI = () => {
           >
             Connect to Fastify
           </button> */}
-          <div ref={parent} className="flex w-64 flex-col">
+          <div ref={parent} className="flex flex-col lg:w-64">
             <button
-              className="dropdown-label cursor-pointer select-none  bg-slate-300 px-4 py-2 font-mono text-base shadow-md active:bg-slate-200 active:shadow-lg"
+              className="dropdown-label cursor-pointer select-none  bg-slate-300 px-4 py-2 font-mono text-base shadow-md hover:brightness-110 active:shadow-lg active:brightness-90"
               onClick={reveal}
             >
               Fastify API
@@ -205,7 +205,7 @@ const ProjectAPI = () => {
               }}
             ></textarea>
             <button
-              className="w-fit self-end  bg-slate-400 px-8 py-2 font-mono text-base transition-all  hover:bg-slate-300     active:scale-90 active:bg-slate-300 active:shadow-lg"
+              className="bg-slate-400 px-8  py-2 font-mono text-base transition-all hover:bg-slate-300 active:scale-90  active:bg-slate-300     active:shadow-lg lg:w-fit lg:self-end"
               onClick={() => {
                 handleFetch(
                   "http://127.0.0.1:3000/animals",

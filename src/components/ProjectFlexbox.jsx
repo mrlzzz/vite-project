@@ -21,7 +21,7 @@ const ProjectFlexbox = () => {
 
   return (
     <>
-      <article className="shadow-m group prose mx-8 mb-8 max-w-none bg-slate-400 p-8 text-slate-950 lg:text-lg">
+      <article className="shadow-m group prose mx-2 max-w-none bg-slate-400 p-4 text-slate-950 lg:mx-8 lg:mb-8 lg:p-8 lg:text-lg">
         <h2>Description</h2>
         <section className="">
           <p>
@@ -61,7 +61,7 @@ const ProjectFlexbox = () => {
           </div>
         </section>
       </article>
-      <div className=" w-full self-center bg-slate-600 py-1 pr-10 text-right font-mono text-sm font-light italic text-slate-400">
+      <div className=" w-full self-center bg-slate-600 py-1 pr-2 text-right font-mono text-sm font-light italic text-slate-400 lg:pr-10">
         {" "}
         ./markdown/{mdIndex === 0 ? "flexbox" : "closures"}.md
       </div>
@@ -75,7 +75,7 @@ const ProjectFlexbox = () => {
       </button>
       <div
         ref={parent}
-        className="mx-8 my-4 w-full  max-w-full self-center bg-slate-400  px-8 py-8 shadow-md lg:prose-lg marker:text-slate-900  lg:max-w-[50vw]"
+        className="mx-2 my-4 w-full  max-w-full self-center bg-slate-400  p-4 shadow-md lg:prose-lg marker:text-slate-900 lg:mx-8 lg:max-w-[50vw] lg:px-8  lg:py-8"
       >
         <Markdown className="prose w-full max-w-full">{markdown}</Markdown>
       </div>

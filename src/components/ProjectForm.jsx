@@ -124,7 +124,7 @@ const ProjectForm = () => {
     <>
       {/* Info section - for each exercise. Probably should be a separate component */}
 
-      <section className="prose mx-8 mb-4 max-w-none bg-slate-400 p-8 text-slate-950 shadow-md lg:text-lg">
+      <section className="prose mx-2 max-w-none bg-slate-400 p-4 text-slate-950 shadow-md lg:mx-8 lg:mb-4 lg:p-8 lg:text-lg">
         <h2>Description</h2>
         <p>
           The following shows a form implemented using the{" "}
@@ -146,7 +146,7 @@ const ProjectForm = () => {
           <code>input</code> element.
         </p>
         <div>
-          <ul className="list-inside list-disc pt-1 duration-300 [&>*]:cursor-default [&>*]:pl-2 [&>*]:transition-all">
+          <ul className="pt-1 duration-300 lg:list-inside lg:list-disc [&>*]:cursor-default [&>*]:transition-all lg:[&>*]:pl-2">
             <b>TODO: </b>
             <li className="flex">
               <span>
@@ -158,11 +158,10 @@ const ProjectForm = () => {
                 />
               </span>
               <span className="w-2"></span>
-              <span className="mr-1 line-through decoration-[3px]">
+              <span className="mr-1 ">
                 Make the error messages into tooltips appearing on the side of
                 an input field
               </span>{" "}
-              I like how it looks now.
             </li>
             <li className="flex">
               <span>
@@ -193,14 +192,14 @@ const ProjectForm = () => {
           </ul>
         </div>
       </section>
-      <div className=" mb-8 mt-4 w-full self-center bg-slate-600 py-1 pr-10 text-right font-mono text-sm font-light italic text-slate-400">
+      <div className=" mb-8 mt-4 w-full self-center bg-slate-600 py-1  pr-2 text-right font-mono text-sm font-light italic text-slate-400 lg:pr-10">
         {" "}
         react-form-hook
       </div>
-      <div className="flex items-center justify-center">
+      <div className="mx-2 flex flex-col lg:mx-0  lg:items-center lg:justify-center">
         <div
           className={
-            "flex w-96 flex-col self-center bg-slate-400 p-2 shadow-md"
+            "flex flex-col bg-slate-400 p-2 shadow-md lg:w-96 lg:self-center"
           }
         >
           {isSubmitSuccessful ? (
@@ -286,9 +285,9 @@ const ProjectForm = () => {
             />
           </Form>
         </div>
-        <div>
+        <div className="mt-1 flex w-full justify-center gap-1">
           <button
-            className="ml-8 bg-slate-400 px-2 py-1 text-base shadow-md active:bg-slate-300 active:shadow-lg"
+            className=" bg-slate-400 px-4 py-2 text-base shadow-md hover:brightness-110 active:shadow-lg active:brightness-90"
             onClick={() => {
               setValue("firstName", "Test");
               setValue("secondName", "Test");
@@ -299,7 +298,7 @@ const ProjectForm = () => {
             Fill up
           </button>
           <button
-            className="ml-8 bg-slate-400 px-2 py-1 text-base shadow-md active:bg-slate-300 active:shadow-lg"
+            className=" bg-slate-400 px-4 py-2 text-base shadow-md hover:brightness-110 active:shadow-lg active:brightness-90"
             onClick={() => {
               setValue("firstName", "");
               setValue("secondName", "");

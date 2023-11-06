@@ -112,7 +112,8 @@ export default function Layout({ children }) {
       {renderedPage}
       <div
         ref={parent}
-        className="fixed bottom-2 left-2 flex h-fit w-fit  flex-col lg:bottom-8 lg:left-8 "
+        className="fixed left-2 top-2 z-20 flex h-fit w-[20rem] flex-col  "
+        // className="fixed bottom-2 left-2 flex h-fit w-fit  flex-col lg:bottom-8 lg:left-8"
       >
         {toasts}
       </div>
