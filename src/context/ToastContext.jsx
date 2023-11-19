@@ -15,6 +15,10 @@ export const ToastContext = createContext(null);
 const ToastProvider = ({ children }) => {
   const [toasts, setToasts] = useState([]);
 
+  // It does not trigger asynchronous timers for each toast.
+  // Any change to `toasts` resets ongoing timer.
+  // This `useEffect` should be a part of individual toast message component. 
+  // Where timer can work asynchronously on each individual toast.
   useEffect(() => {
     const toastTimeout = setTimeout(() => {
       if (toasts.length > 0) {

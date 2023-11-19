@@ -3,11 +3,42 @@
 @tailwind utilities;
 
 @layer base {
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"] {
-        -webkit-appearance: none;
-        margin: 0;
-        -moz-appearance: textfield !important;
-    }
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"] {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield !important;
+  }
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: #cbd5e1;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border: 2px solid #cbd5e1;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+    cursor: pointer;
+  }
+
+  .scrollbar-body::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border: 2px solid #cbd5e1;
+  }
+
+  .scrollbar-body::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+    cursor: pointer;
+  }
 }

@@ -7,7 +7,7 @@ const BackButton = () => {
   let navigate = useNavigate();
   return (
     <a
-      className="ml-2 mt-4 cursor-pointer self-start bg-slate-400 px-2 py-1 text-sm tracking-tight hover:text-slate-700 lg:my-4 lg:ml-8"
+      className="mb-2 ml-2 mt-4 cursor-pointer self-start bg-slate-400 px-2 py-1 text-sm tracking-tight hover:text-slate-700 lg:my-4 lg:ml-8"
       onClick={() => {
         navigate(-1);
       }}

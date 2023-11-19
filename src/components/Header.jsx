@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Collapse, Dropdown, initTE } from "tw-elements";
 
 export default function Header() {
@@ -62,7 +62,7 @@ export default function Header() {
     <>
       <nav
         ref={navRef}
-        className="sticky top-0 z-10 flex w-full flex-nowrap items-center justify-between bg-slate-700 py-2 shadow-md shadow-black/10 duration-300 lg:flex-wrap lg:justify-start"
+        className="sticky top-0 z-10 flex w-full flex-nowrap items-center justify-between  bg-slate-700  py-2 shadow-md shadow-black/10 backdrop-blur-sm duration-300 lg:flex-wrap lg:justify-start"
       >
         <div className="flex flex-wrap items-center justify-between duration-300 sm:w-full lg:mx-auto lg:w-2/3">
           <button
@@ -103,23 +103,24 @@ export default function Header() {
               data-te-navbar-nav-ref
             >
               <li
-                className="flex items-center hover:cursor-pointer lg:mb-0"
+                className=" flex items-center hover:cursor-pointer lg:mb-0"
                 onClick={() => {
-                  handleNavigation("/vite-project/");
+                  // handleNavigation("/vite-project/");
                   handleActiveLink(0);
                 }}
                 data-te-nav-item-ref
               >
-                <a
+                <Link
+                  to={"/vite-project/"}
                   className={`${
                     activeLink === 0
                       ? "text-slate-200 underline decoration-red-300 decoration-2 underline-offset-[4px]"
                       : "text-slate-400"
-                  } w-screen px-3 py-2 text-sm font-medium tracking-tighter transition duration-200 hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
+                  } z-30 w-screen px-3 py-2 text-sm font-medium tracking-tighter transition duration-200 hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
                   data-te-nav-link-ref
                 >
                   ABOUT
-                </a>
+                </Link>
               </li>
               <li
                 className="flex items-center hover:cursor-pointer lg:mb-0"
@@ -134,7 +135,7 @@ export default function Header() {
                     activeLink === 1
                       ? "text-slate-200 underline decoration-red-300 decoration-2 underline-offset-[4px]"
                       : "text-slate-400"
-                  } w-screen px-3 py-2 text-sm font-medium tracking-tighter   transition duration-200  hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
+                  } z-30 w-screen px-3  py-2 text-sm font-medium tracking-tighter   transition duration-200  hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
                   data-te-nav-link-ref
                 >
                   BLOG
@@ -153,14 +154,14 @@ export default function Header() {
                     activeLink === 2
                       ? "text-slate-200 underline decoration-red-300 decoration-2 underline-offset-[4px]"
                       : "text-slate-400"
-                  } w-screen px-3 py-2 text-sm font-medium tracking-tighter   transition duration-200  hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
+                  } z-30 w-screen px-3 py-2 text-sm font-medium tracking-tighter   transition duration-200  hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
                   data-te-nav-link-ref
                 >
                   EXAMPLES
                 </a>
               </li>
             </ul>
-            <div className="relative flex items-center">
+            <div className=" relative !z-30 flex items-center">
               <li
                 className="flex items-center hover:cursor-pointer lg:mb-0"
                 data-te-nav-item-ref
@@ -174,7 +175,7 @@ export default function Header() {
                     activeLink === 3
                       ? "text-slate-200 underline decoration-red-300 decoration-2 underline-offset-[4px]"
                       : "text-slate-400"
-                  } w-screen px-3 py-2 text-sm font-medium tracking-tighter transition duration-200 hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
+                  }  w-screen px-3 py-2 text-sm font-medium tracking-tighter transition duration-200 hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
                   data-te-nav-link-ref
                 >
                   INFO

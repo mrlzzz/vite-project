@@ -65,7 +65,7 @@ const ProjectFlexbox = () => {
         {" "}
         ./markdown/{mdIndex === 0 ? "flexbox" : "closures"}.md
       </div>
-      <div className="sticky top-1 z-50 mt-4 flex justify-center font-mono text-sm font-semibold">
+      <div className="sticky top-1 z-20 mt-4 flex w-fit justify-center self-center font-mono text-sm font-semibold">
         <button
           onClick={() => {
             mdIndex === 0 ? setMdIndex(1) : setMdIndex(0);

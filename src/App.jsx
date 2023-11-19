@@ -28,14 +28,14 @@ function App() {
       title: "Flexdown lesson",
       subTitle: "Flexbox x markdown",
       status: "Done",
-      desc: "Studying the flexbox while trying to render markdown notes",
+      desc: "Studying the flexbox while trying to render markdown notes. Multiple markdown files enabled.",
       path: "/flexbox",
     },
     {
       title: "Project API",
-      subTitle: "Fastify + mongodb + API calls",
+      subTitle: "Node + mongodb + API calls",
       status: "In Progress",
-      desc: "Fastify + mongodb + API calls",
+      desc: "Node + mongodb + API calls",
       path: "/api",
     },
     // {
@@ -90,7 +90,7 @@ function App() {
   });
 
   return (
-    <div className="bg-slate-300 lg:text-xl">
+    <div className=" bg-slate-300 lg:text-xl">
       <Routes>
         <Route path="/vite-project" element={<Layout />} />
         <Route
