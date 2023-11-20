@@ -18,7 +18,7 @@ const TodoRowStatus = ({ status }) => {
 
   return (
     <td
-      className={`border-r-4 border-slate-200 py-4 text-center ${statusStyle} transition-all duration-150`}
+      className={`border-r-2 border-slate-200 py-5 text-center ${statusStyle} content-centertransition-all justify-center duration-150`}
     >
       {status}
     </td>

@@ -2,6 +2,8 @@ const iconStyle =
   "hover:brightness-80 rounded-sm  p-1 text-slate-700 transition-all duration-75 hover:bg-slate-200 active:brightness-110 cursor-pointer";
 const addIconStyle =
   "hover:brightness-80 rounded-sm  p-1 text-slate-300 transition-all duration-75 hover:bg-slate-600 active:brightness-110 cursor-pointer";
+const arrowIconStyle =
+  "hover:brightness-80 rounded-sm  p-1 text-slate-700 transition-all duration-75 hover:bg-slate-200 active:brightness-110 cursor-pointer";
 
 const editIcon = (
   <div className={iconStyle}>
@@ -78,13 +80,49 @@ const checkIcon = (
     </svg>
   </div>
 );
+const arrowUpIcon = (
+  <div className={arrowIconStyle}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m18 15-6-6-6 6" />
+    </svg>
+  </div>
+);
 
+const arrowDownIcon = (
+  <div className={arrowIconStyle}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  </div>
+);
 const Icon = ({ type }) => {
   const iconList = {
     editIcon: editIcon,
     addIcon: addIcon,
     deleteIcon: deleteIcon,
     checkIcon: checkIcon,
+    arrowUpIcon: arrowUpIcon,
+    arrowDownIcon: arrowDownIcon,
   };
   return <>{iconList[type]}</>;
 };

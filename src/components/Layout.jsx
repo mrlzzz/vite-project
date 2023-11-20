@@ -12,9 +12,8 @@ import InfoPage from "./InfoPage.jsx";
 import AboutPage from "./AboutPage.jsx";
 
 import { useLocation } from "react-router-dom";
-import { useContext, useRef, useEffect } from "react";
+import { useContext } from "react";
 import { ToastContext } from "../context/ToastContext.jsx";
-import autoAnimate from "@formkit/auto-animate";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function Layout({ children }) {

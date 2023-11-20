@@ -286,9 +286,10 @@ const ProjectAPI = () => {
     <>
       <div className="flex flex-col">
         <article className="shadow-m group prose mx-2 mb-8 max-w-none bg-slate-400 p-4 text-base text-slate-950 lg:mx-8 lg:p-8 lg:text-lg">
-          <h2>Description</h2>
-          <section className="">
-            <p>
+          <h2>Project API</h2>
+          <section className="lg:w-[80%]">
+            <h4>Description</h4>
+            <p className="text-justify">
               The following shows possible requests to a HTTP CRUD API exposed
               by a Node server. The server utilizes Express as its web framework
               and connects to a mongodb database using Node&apos;s appropiate
@@ -299,7 +300,8 @@ const ProjectAPI = () => {
               I have utlized mongosh CLI tool that connects to mongo&apos;s
               Atlas.
             </p>
-            <p>Quick guide on centering contents of a {"<td>"} tag.</p>
+            <h4>Ceveats</h4>
+            <p>A quick guide on centering contents of a {"<td>"} tag.</p>
             <div
               onClick={() => {
                 setToggleCode(!toggleCode);
@@ -335,13 +337,15 @@ const ProjectAPI = () => {
                 )}
               </Highlight>
             </div>
+            <h4>Tasks</h4>
             <TodoTable />
           </section>
         </article>
-        <div className="mb-4 mt-4 w-full self-center bg-slate-600 py-1 pr-2 text-right font-mono text-sm font-light italic text-slate-400 lg:pr-10">
+        <div className="mb-4 mt-4 w-full self-center border-l-4 border-red-300 bg-slate-600 py-1 pr-2 text-right font-mono text-sm font-light italic text-slate-400 lg:pr-10">
           {" "}
           API calls
         </div>
+
         <div className="mx-2 my-8 flex flex-col gap-4  lg:mx-8 lg:flex-row">
           {/* <button
             className=" w-fit self-center bg-slate-300 px-4 py-2 font-mono text-base shadow-md active:bg-slate-200 active:shadow-lg"
