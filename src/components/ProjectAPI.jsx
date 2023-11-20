@@ -2,11 +2,24 @@ import { useState, useEffect, useRef, useContext } from "react";
 import { ToastContext } from "../context/ToastContext";
 import formatDate from "../utils/FormatDate";
 import autoAnimate from "@formkit/auto-animate";
+import TodoTable from "./TodoTable";
+import { Highlight, themes } from "prism-react-renderer";
 
 // https://vite-project-express.vercel.app
 // http://localhost:9001
 
 const DOMAIN_URL = "https://vite-project-express.vercel.app";
+const codeBlock = `  // Center <td>'s contents
+  <td
+    style={{ verticalAlign: "middle" }}
+    className="bg-red-300 p-0"
+  >
+    <div className="flex justify-center">
+      <Icon type={"editIcon"}></Icon>
+      <Icon type={"deleteIcon"}></Icon>
+    </div>
+ </td>`;
+const initialCodeBlock = `  // Center <td>'s contents`;
 
 const ProjectAPI = () => {
   const [data, setData] = useState([
@@ -29,6 +42,7 @@ const ProjectAPI = () => {
   const payloadRef = useRef(null);
   const parent = useRef(null);
   const { addToast } = useContext(ToastContext);
+  const [toggleCode, setToggleCode] = useState(false);
 
   useEffect(() => {
     parent.current && autoAnimate(parent.current);
@@ -275,27 +289,53 @@ const ProjectAPI = () => {
           <h2>Description</h2>
           <section className="">
             <p>
-              The following shows React performing a <code>HTTP GET</code>{" "}
-              request inside a <code>useEffect</code> hook. The request is sent
-              to a local <code>Node</code> instance. The reply body contains a
-              test <code>JSON</code> message.{" "}
-              <span className="block w-fit bg-red-300 px-2">
-                Due to locality of the <code>Node</code> application, this
-                deployed example will not work at the moment.
-              </span>
+              The following shows possible requests to a HTTP CRUD API exposed
+              by a Node server. The server utilizes Express as its web framework
+              and connects to a mongodb database using Node&apos;s appropiate
+              mongo driver. API calls are implemented using Fetch API and
+              perform CRUD operations on the mongo database. The Node
+              application is deployed on Vercel, whereas mongo is deployed on
+              Atlas. To perform tests and any arbirtrary operations on database
+              I have utlized mongosh CLI tool that connects to mongo&apos;s
+              Atlas.
             </p>
-            <ol className="list-decimal marker:text-slate-600">
-              <li>Animate the menu</li>
-              <li>Add more routes</li>
-              <li>
-                Connect to <code>mongoDb</code>
-              </li>
-              <li>Enable post requests</li>
-              <li>
-                Deploy server-side code to serverless environment - either{" "}
-                <code>Cloudflare Workers</code> or <code>Vercel</code>
-              </li>
-            </ol>
+            <p>Quick guide on centering contents of a {"<td>"} tag.</p>
+            <div
+              onClick={() => {
+                setToggleCode(!toggleCode);
+              }}
+              className="cursor-pointer transition-all duration-150 hover:brightness-110"
+            >
+              <Highlight
+                theme={themes.jettwaveDark}
+                code={toggleCode ? codeBlock : initialCodeBlock}
+                language="jsx"
+              >
+                {({
+                  className,
+                  style,
+                  tokens,
+                  getLineProps,
+                  getTokenProps,
+                }) => (
+                  <pre style={style}>
+                    {tokens.map((line, i) => (
+                      <div key={i} {...getLineProps({ line })}>
+                        <span>{i + 1}</span>
+                        {line.map((token, key) => (
+                          <span
+                            style={{ backgroundColor: "red" }}
+                            key={key}
+                            {...getTokenProps({ token })}
+                          />
+                        ))}
+                      </div>
+                    ))}
+                  </pre>
+                )}
+              </Highlight>
+            </div>
+            <TodoTable />
           </section>
         </article>
         <div className="mb-4 mt-4 w-full self-center bg-slate-600 py-1 pr-2 text-right font-mono text-sm font-light italic text-slate-400 lg:pr-10">
@@ -313,7 +353,7 @@ const ProjectAPI = () => {
           </button> */}
           <div ref={parent} className="flex flex-col lg:w-64">
             <button
-              className="dropdown-label cursor-pointer select-none  bg-slate-300 px-4 py-2 font-mono text-base shadow-md hover:brightness-110 active:shadow-lg active:brightness-90"
+              className="dropdown-label mb-1 cursor-pointer select-none bg-slate-400  px-4 py-2 font-mono text-base shadow-lg shadow-md hover:brightness-110 active:shadow-lg active:brightness-90"
               onClick={reveal}
             >
               <span>Node API</span>
@@ -324,7 +364,7 @@ const ProjectAPI = () => {
           </div>
           <div className="flex w-full flex-col gap-4">
             <div className="scrollbar flex h-60 select-none flex-col overflow-auto rounded-sm bg-slate-400 p-4 font-mono text-base shadow-md">
-              <span className="pb-1 text-slate-900">
+              <span className="pb-3 text-slate-900">
                 Current request:{" "}
                 <span className=" rounded-sm bg-slate-700 px-4 py-1 text-slate-300 transition-all duration-300 ease-in-out">
                   <span className="font-bold">
@@ -344,7 +384,6 @@ const ProjectAPI = () => {
                     <span>Fetched data: </span>
                   )}
                 </span>
-
                 <div className="">{messages}</div>
               </span>
             </div>

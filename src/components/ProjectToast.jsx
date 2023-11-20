@@ -101,7 +101,7 @@ const ProjectToast = () => {
               onClick={() => {
                 setToggle(!toggle);
               }}
-              className="cursor-pointer "
+              className="cursor-pointer"
             >
               <Highlight
                 theme={themes.jettwaveDark}

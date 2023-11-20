@@ -32,7 +32,7 @@ const AboutPage = () => {
               the learning curve.
             </p>
             <br></br>
-            <p className="text-base lg:text-lg">
+            <p className="border-l-4 border-red-300 pl-2 text-base lg:text-base">
               The source code for this website is available at:{" "}
               <a
                 className="underline-slate-100 group text-base text-slate-400 transition duration-300 "
@@ -40,7 +40,17 @@ const AboutPage = () => {
                 href="https://github.com/mrlzzz/vite-project"
               >
                 https://github.com/mrlzzz/vite-project
-                <span className="block h-[1px] max-w-0 bg-red-300 transition-all duration-500 group-hover:max-w-full"></span>
+                {/* <span className="block h-[1px] max-w-0 bg-red-300 transition-all duration-500 group-hover:max-w-full"></span> */}
+              </a>
+              <br />
+              Backend API source code is available at:{" "}
+              <a
+                className="underline-slate-100 group p-1 text-base text-slate-400 transition duration-300 "
+                style={{ textDecorationColor: "rgb(203 213 225)" }}
+                href="https://github.com/mrlzzz/vite-project-express"
+              >
+                https://github.com/mrlzzz/vite-project-express
+                {/* <span className="block h-[1px] max-w-0 bg-red-300 transition-all duration-500 group-hover:max-w-full"></span> */}
               </a>
             </p>
             <br></br>

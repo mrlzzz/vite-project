@@ -139,9 +139,9 @@ const ProjectForm = () => {
         </p>
         <p>
           <i>21/10/23</i> - I have added the silly heart-shaped checkboxes. To
-          do so, I had to utilize <code>peer</code> utility class and its{" "}
-          <code>peer:checked</code> and <code>peer:hover</code> pseudo classes .
-          As well as, <code>svg</code> HTML element and{" "}
+          do so, I had to utilize Tailwind&apos;s <code>peer</code> utility
+          class and its <code>peer:checked</code> and <code>peer:hover</code>{" "}
+          pseudo classes. As well as, <code>svg</code> HTML element and{" "}
           <code>appearance-none</code> utility class for the checkbox{" "}
           <code>input</code> element.
         </p>
