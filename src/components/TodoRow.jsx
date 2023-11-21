@@ -2,19 +2,35 @@ import Icon from "./Icons/Icon";
 import { useEffect, useState, useRef } from "react";
 import TodoRowStatus from "./TodoRowStatus";
 
-const TodoRow = ({ children, status, handlerFunctions, id }) => {
-  const inputRef = useRef(null);
-  const [isEditing, setIsEditing] = useState(false);
+const TodoRow = ({
+  children,
+  status,
+  handlerFunctions,
+  newlyAddedTodo,
+  id,
+}) => {
+  const [isLocalEditing, setIsLocalEditing] = useState(false);
   const [task, setTask] = useState(children);
   const [editedTask, setEditedTask] = useState("");
+  const [addedTodo, setAddedTodo] = useState(newlyAddedTodo);
   const [statusType, setStatusType] = useState(status);
+  const inputRef = useRef(null);
 
   useEffect(() => {
-    if (isEditing) inputRef.current.focus();
-  }, [isEditing]);
+    if (addedTodo != null) {
+      if (addedTodo.id === id) {
+        setIsLocalEditing(true);
+        console.log(addedTodo);
+      }
+    }
+    // if (newlyAddedTodo.id) {
+    //   setIsLocalEditing(true);
+    // }
+    if (isLocalEditing) inputRef.current.focus();
+  }, [isLocalEditing, id, addedTodo]);
 
   const handleEditToggle = () => {
-    setIsEditing(!isEditing);
+    setIsLocalEditing(!isLocalEditing);
   };
 
   const handleChange = (e) => {
@@ -29,7 +45,8 @@ const TodoRow = ({ children, status, handlerFunctions, id }) => {
 
   const handleSave = () => {
     setTask(editedTask);
-    setIsEditing(false);
+    setIsLocalEditing(false);
+    setAddedTodo(null);
   };
 
   // TODO: Improve implementation
@@ -64,13 +81,16 @@ const TodoRow = ({ children, status, handlerFunctions, id }) => {
 
   return (
     <>
-      <tr className=" bg-slate-300">
+      <tr className="border-b border-slate-400 bg-slate-300 last:border-b-0">
         <th
           scope="row"
-          className=" whitespace-nowrap border-r-2 px-1 font-medium text-gray-900"
+          className=" group whitespace-nowrap border-r-2 px-1 font-medium text-gray-900"
         >
-          <div className=" flex content-center">
-            <div className="flex scale-75 flex-col pr-2 opacity-0 transition-all duration-300 group-hover:opacity-50">
+          <div className="flex content-center">
+            <div
+              className="flex scale-75 flex-col pr-1
+             opacity-10 transition-all duration-300 group-hover:opacity-75"
+            >
               <div
                 onClick={() => {
                   handlerFunctions.moveUp(id);
@@ -94,9 +114,9 @@ const TodoRow = ({ children, status, handlerFunctions, id }) => {
                 <Icon type="arrowDownIcon"></Icon>
               </div>
             </div>
-            {isEditing ? (
+            {isLocalEditing ? (
               <div className="flex flex-col justify-center">
-                <div className="flex h-[50%] bg-red-300">
+                <div className="flex h-[50%] ">
                   <input
                     type="text"
                     name="task"
@@ -104,7 +124,7 @@ const TodoRow = ({ children, status, handlerFunctions, id }) => {
                     onChange={handleChange}
                     onKeyDown={handleKeyDown}
                     ref={inputRef}
-                    className=" w-[80%] rounded-l-sm px-2  font-normal outline-none"
+                    className="w-[80%] rounded-l-sm px-2 font-normal outline-none"
                   ></input>
                   <button
                     onClick={() => {
@@ -117,7 +137,9 @@ const TodoRow = ({ children, status, handlerFunctions, id }) => {
                 </div>
               </div>
             ) : (
-              <div className=" flex flex-col justify-center">{task}</div>
+              <div className=" flex flex-col justify-center text-base">
+                {task}
+              </div>
             )}
           </div>
         </th>

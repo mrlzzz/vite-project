@@ -8,6 +8,7 @@ import ProjectFlexbox from "./ProjectFlexbox.jsx";
 import ProjectAnimate from "./ProjectAnimate.jsx";
 import ProjectToast from "./ProjectToast.jsx";
 import ProjectAPI from "./ProjectAPI.jsx";
+import ProjectTodo from "./ProjectTodo.jsx";
 import InfoPage from "./InfoPage.jsx";
 import AboutPage from "./AboutPage.jsx";
 
@@ -76,6 +77,13 @@ export default function Layout({ children }) {
       renderedPage = (
         <Content>
           <ProjectToast></ProjectToast>
+        </Content>
+      );
+      break;
+    case "/vite-project/projects/todo":
+      renderedPage = (
+        <Content>
+          <ProjectTodo></ProjectTodo>
         </Content>
       );
       break;

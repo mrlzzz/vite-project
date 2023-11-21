@@ -3,21 +3,69 @@ import autoAnimate from "@formkit/auto-animate";
 import Markdown from "react-markdown";
 import mdFlexbox from "../markdown/Flexbox.md";
 import mdClosures from "../markdown/Closures.md";
+import mdStorage from "../markdown/Storage.md";
 
-const markdownFiles = [mdFlexbox, mdClosures];
+const markdownFiles = [mdFlexbox, mdClosures, mdStorage];
 
 const ProjectFlexbox = () => {
-  const [markdown, setMarkdown] = useState("");
+  const [markdown, setMarkdown] = useState(null);
   const [mdIndex, setMdIndex] = useState(0);
+  const [currentFile, setCurrentFile] = useState("");
   const parent = useRef(null);
 
-  useEffect(() => {
-    fetch(markdownFiles[mdIndex])
-      .then((res) => res.text())
-      .then((text) => setMarkdown(text));
+  // useEffect(() => {
+  //   fetch(markdownFiles[mdIndex])
+  //     .then((res) => res.text())
+  //     .then((text) => setMarkdown(text));
 
-    parent.current && autoAnimate(parent.current);
-  }, [mdIndex, parent]);
+  //   parent.current && autoAnimate(parent.current);
+  // }, [mdIndex, parent]);
+
+  // file = `/vite-project/src/markdown/Storage.md`
+
+  /* Fetch API Response object:
+    
+      Functions: 
+        json()
+        FormData()
+        text()
+        blob()
+      Properties:
+        ok
+  */
+
+  // Dependency array is empty on purpose -
+  // it makes useEffect disregard any changes to markdown state,
+  // thus it invokes only at the component mount
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    for (const file of markdownFiles) {
+      console.log(file);
+      try {
+        const res = await fetch(file);
+        const text = await res.text();
+        setMarkdown((prevMarkdown) => [
+          ...(Array.isArray(prevMarkdown) ? prevMarkdown : []),
+          { markdownText: text, markdownFileName: file },
+        ]);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
+  const handleNextMarkdown = () => {
+    setMdIndex((mdIndex + 1) % markdown.length);
+
+    parent.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
     <>
@@ -68,11 +116,7 @@ const ProjectFlexbox = () => {
       <div className="sticky top-1 z-20 mt-4 flex w-fit justify-center self-center font-mono text-sm font-semibold">
         <button
           onClick={() => {
-            mdIndex === 0 ? setMdIndex(1) : setMdIndex(0);
-            parent.current.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
+            handleNextMarkdown();
           }}
           className="peer w-fit  bg-slate-300 px-4 uppercase  text-slate-700 transition-all lg:py-1 lg:hover:bg-slate-400 lg:active:bg-slate-600"
         >
@@ -85,10 +129,10 @@ const ProjectFlexbox = () => {
 
       <div
         ref={parent}
-        className="mx-2 my-4 w-full  max-w-full self-center bg-slate-400  p-4 shadow-md lg:prose-lg marker:text-slate-900 lg:mx-8 lg:max-w-[50vw] lg:px-8"
+        className="mx-2 my-4 w-full max-w-full self-center rounded-sm bg-slate-400  p-4 shadow-md lg:prose-lg marker:text-slate-900 lg:mx-8 lg:max-w-[50vw] lg:px-8"
       >
         <Markdown className="prose prose-slate w-full max-w-full py-4 lg:py-0">
-          {markdown}
+          {markdown != null ? markdown[mdIndex].markdownText : ""}
         </Markdown>
       </div>
     </>

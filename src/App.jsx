@@ -53,6 +53,13 @@ function App() {
       path: "/toast",
     },
     {
+      title: "Todo Component",
+      subTitle: "Todo Component",
+      status: "In Progress",
+      desc: "Implementation of reusable and interactive Todo component",
+      path: "/todo",
+    },
+    {
       title: "Placeholder",
       subTitle: "Placeholder",
       status: "Placeholder",

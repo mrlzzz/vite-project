@@ -3,6 +3,7 @@ import Icon from "./Icons/Icon";
 import TodoRow from "./TodoRow";
 import { v4 as uuidv4 } from "uuid";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useHotkeys } from "react-hotkeys-hook";
 
 const initialTodoList = [
   { id: uuidv4(), task: "Add more routes", status: "Done" },
@@ -13,7 +14,9 @@ const initialTodoList = [
 
 const TodoTable = () => {
   const [todoList, setTodoList] = useState(initialTodoList);
+  const [newlyAddedTodo, setNewlyAddedTodo] = useState(null);
   const [parent, enable] = useAutoAnimate();
+  useHotkeys("ctrl+enter", () => addTodo());
 
   const addTodo = () => {
     enable(false);
@@ -23,6 +26,7 @@ const TodoTable = () => {
       status: "Pending",
     };
     setTodoList([...todoList, newTodo]);
+    setNewlyAddedTodo(newTodo);
   };
 
   const removeTodo = (id) => {
@@ -98,6 +102,7 @@ const TodoTable = () => {
         key={e.id}
         status={e.status}
         handlerFunctions={handlerFunctions}
+        newlyAddedTodo={newlyAddedTodo}
         id={e.id}
       >
         {e.task}
@@ -148,7 +153,7 @@ const TodoTable = () => {
                 <th
                   style={{ verticalAlign: "middle" }}
                   scope="col"
-                  className="  p-0 text-gray-200"
+                  className="p-0 text-gray-200"
                 >
                   <div className="flex justify-center">
                     <div className="flex flex-col justify-center ">
