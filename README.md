@@ -15,3 +15,5 @@ Includes various small projects served in one place.
 # Todo
 
 - Refactor project structure
+- Fix routing
+  - Deployed page 404s on refresh
