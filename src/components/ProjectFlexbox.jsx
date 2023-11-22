@@ -6,11 +6,12 @@ import mdClosures from "../markdown/Closures.md";
 import mdStorage from "../markdown/Storage.md";
 
 const markdownFiles = [mdFlexbox, mdClosures, mdStorage];
+const markdownFilesTitle = ["Flexbox.md", "Closures.md", "Storage.md"];
 
 const ProjectFlexbox = () => {
   const [markdown, setMarkdown] = useState(null);
   const [mdIndex, setMdIndex] = useState(0);
-  const [currentFile, setCurrentFile] = useState("");
+  const [currentFile, setCurrentFile] = useState("Flexbox.md");
   const parent = useRef(null);
 
   // useEffect(() => {
@@ -44,13 +45,12 @@ const ProjectFlexbox = () => {
 
   const fetchData = async () => {
     for (const file of markdownFiles) {
-      console.log(file);
       try {
         const res = await fetch(file);
         const text = await res.text();
         setMarkdown((prevMarkdown) => [
           ...(Array.isArray(prevMarkdown) ? prevMarkdown : []),
-          { markdownText: text, markdownFileName: file },
+          { markdownText: text },
         ]);
       } catch (error) {
         console.error(error);
@@ -65,6 +65,16 @@ const ProjectFlexbox = () => {
       behavior: "smooth",
       block: "start",
     });
+
+    // Stupid check for now. In DEV, each items is duplicated, in PROD, it's ok.
+
+    if (mdIndex === 0 || mdIndex === 1) {
+      setCurrentFile("flexbox.md");
+    } else if (mdIndex === 2 || mdIndex === 3) {
+      setCurrentFile("closures.md");
+    } else if (mdIndex === 4 || mdIndex === 5) {
+      setCurrentFile("storage.md");
+    }
   };
 
   return (
@@ -111,7 +121,7 @@ const ProjectFlexbox = () => {
       </article>
       <div className=" w-full self-center bg-slate-600 py-1 pr-2 text-right font-mono text-sm font-light italic text-slate-400 lg:pr-10">
         {" "}
-        ./markdown/{mdIndex === 0 ? "flexbox" : "closures"}.md
+        ./markdown/{currentFile}
       </div>
       <div className="sticky top-1 z-20 mt-4 flex w-fit justify-center self-center font-mono text-sm font-semibold">
         <button
@@ -123,7 +133,7 @@ const ProjectFlexbox = () => {
           Next file &rarr;
         </button>
         <div className="ml-2 bg-slate-700 px-4 text-slate-300 transition-all duration-300 ease-in-out peer-hover:scale-100 peer-hover:opacity-100 lg:scale-90 lg:py-1 lg:opacity-0">
-          {mdIndex === 0 ? "closures.md" : "flexbox.md"}
+          {currentFile}
         </div>
       </div>
 

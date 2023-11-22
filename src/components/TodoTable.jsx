@@ -1,28 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Icon from "./Icons/Icon";
 import TodoRow from "./TodoRow";
 import { v4 as uuidv4 } from "uuid";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useHotkeys } from "react-hotkeys-hook";
+import { saveToLocalStorage } from "../utils/storage";
+import { getFromLocalStorage } from "../utils/storage";
 
-const initialTodoList = [
+const dummyInitialTodoList = [
   { id: uuidv4(), task: "Add more routes", status: "Done" },
   { id: uuidv4(), task: "Animate the menu", status: "Done" },
   { id: uuidv4(), task: "Enable POST requests", status: "Done" },
   { id: uuidv4(), task: "Deploy server-side code to Vercel", status: "Done" },
 ];
 
-const TodoTable = () => {
-  const [todoList, setTodoList] = useState(initialTodoList);
+const TodoTable = ({ id }) => {
+  const localStorageId = `todo-${id}`;
+  const [todoList, setTodoList] = useState([]);
   const [newlyAddedTodo, setNewlyAddedTodo] = useState(null);
   const [parent, enable] = useAutoAnimate();
   useHotkeys("ctrl+enter", () => addTodo());
 
+  useEffect(() => {
+    const storedData = getFromLocalStorage(localStorageId);
+    const initialTodoList = storedData ? storedData : [];
+    setTodoList(initialTodoList);
+  }, []);
+
+  // This one works more like createNewRow(),
+  // updateTodo() gives it the content after user input.
   const addTodo = () => {
     enable(false);
     const newTodo = {
       id: uuidv4(),
-      task: "New Task",
+      task: "New task",
       status: "Pending",
     };
     setTodoList([...todoList, newTodo]);
@@ -33,6 +44,31 @@ const TodoTable = () => {
     enable(false);
     const updatedTodoList = todoList.filter((todo) => todo.id !== id);
     setTodoList(updatedTodoList);
+    saveToLocalStorage(localStorageId, updatedTodoList);
+  };
+
+  // Band-aid at the moment
+  const updateTodoTask = (id, newTask) => {
+    const index = todoList.findIndex((todo) => todo.id === id);
+
+    if (index !== -1) {
+      const updatedTodoList = [...todoList];
+      updatedTodoList[index] = { ...updatedTodoList[index], task: newTask };
+      setTodoList(updatedTodoList);
+      saveToLocalStorage(localStorageId, updatedTodoList);
+    }
+  };
+
+  // Band-aid at the moment
+  const updateTodoStatus = (id, newStatus) => {
+    const index = todoList.findIndex((todo) => todo.id === id);
+
+    if (index !== -1) {
+      const updatedTodoList = [...todoList];
+      updatedTodoList[index] = { ...updatedTodoList[index], status: newStatus };
+      setTodoList(updatedTodoList);
+      saveToLocalStorage(localStorageId, updatedTodoList);
+    }
   };
 
   const moveTodoUp = (id) => {
@@ -46,6 +82,7 @@ const TodoTable = () => {
         updatedTodoList[index - 1],
       ];
       setTodoList(updatedTodoList);
+      saveToLocalStorage(localStorageId, updatedTodoList);
     }
   };
 
@@ -60,6 +97,7 @@ const TodoTable = () => {
         updatedTodoList[index],
       ];
       setTodoList(updatedTodoList);
+      saveToLocalStorage(localStorageId, updatedTodoList);
     }
   };
 
@@ -72,6 +110,7 @@ const TodoTable = () => {
       const movedTodo = updatedTodoList.splice(index, 1);
       updatedTodoList.unshift(...movedTodo);
       setTodoList(updatedTodoList);
+      saveToLocalStorage(localStorageId, updatedTodoList);
     }
   };
 
@@ -84,16 +123,26 @@ const TodoTable = () => {
       const movedTodo = updatedTodoList.splice(index, 1);
       updatedTodoList.push(...movedTodo);
       setTodoList(updatedTodoList);
+      saveToLocalStorage(localStorageId, updatedTodoList);
     }
+  };
+
+  const toLocalStorage = () => {
+    setTimeout(() => {
+      saveToLocalStorage(localStorageId, todoList);
+    }, 2000);
   };
 
   const handlerFunctions = {
     add: addTodo,
     remove: removeTodo,
+    updateTask: updateTodoTask,
+    updateStatus: updateTodoStatus,
     moveUp: moveTodoUp,
     moveDown: moveTodoDown,
     moveTop: moveTodoTop,
     moveBottom: moveTodoBottom,
+    toLocalStorage: toLocalStorage,
   };
 
   let todoRows = todoList.map((e) => {
@@ -127,9 +176,9 @@ const TodoTable = () => {
                   scope="col"
                   className="ml-0 px-3 py-3 text-gray-200 "
                 >
-                  <div className="flex ">
+                  <div className="flex">
                     <div
-                      className="mr-2 flex scale-90 justify-evenly   rounded-sm"
+                      className="mr-2 flex scale-90 justify-evenly rounded-sm"
                       onClick={() => {
                         handlerFunctions.add();
                       }}
@@ -164,9 +213,15 @@ const TodoTable = () => {
               </tr>
             </thead>
             <tbody ref={parent}>
-              {todoRows.length !== 0 ? todoRows : "Empty"}
+              {todoRows.length !== 0 ? todoRows : null}
             </tbody>
           </table>
+          {todoRows.length === 0 ? (
+            <div className="w-full bg-slate-300 px-2 py-4 text-center">
+              Click the <code>+</code> button or <code>CTRL + ENTER</code> to
+              add a new task.
+            </div>
+          ) : null}
         </div>
       </div>
     </>

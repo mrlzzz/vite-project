@@ -21,7 +21,7 @@ const ProjectTodo = () => {
         </div>
         <div className="w-full bg-slate-400 py-10">
           <div className="mx-auto w-[80%]">
-            <TodoTable></TodoTable>
+            <TodoTable id="project-todo"></TodoTable>
           </div>
         </div>
       </div>

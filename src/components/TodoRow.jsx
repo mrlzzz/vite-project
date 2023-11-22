@@ -20,12 +20,8 @@ const TodoRow = ({
     if (addedTodo != null) {
       if (addedTodo.id === id) {
         setIsLocalEditing(true);
-        console.log(addedTodo);
       }
     }
-    // if (newlyAddedTodo.id) {
-    //   setIsLocalEditing(true);
-    // }
     if (isLocalEditing) inputRef.current.focus();
   }, [isLocalEditing, id, addedTodo]);
 
@@ -38,26 +34,34 @@ const TodoRow = ({
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && isLocalEditing === true) {
       handleSave();
     }
   };
 
   const handleSave = () => {
+    // Update UI
     setTask(editedTask);
+    // Turn of editing mode
     setIsLocalEditing(false);
+    // Remove newly added todo
     setAddedTodo(null);
+    // Change default task into user input
+    handlerFunctions.updateTask(id, editedTask);
   };
 
   // TODO: Improve implementation
   const handleStatusTypeChange = () => {
     if (statusType === "Done") {
       setStatusType("Pending");
+      handlerFunctions.updateStatus(id, "Pending");
     } else {
       setStatusType("Done");
+      handlerFunctions.updateStatus(id, "Done");
     }
   };
 
+  // Long click
   let clickTimer = 0;
 
   const handleMouseDown = (direction) => {
@@ -67,7 +71,6 @@ const TodoRow = ({
   };
 
   const handleMouseUp = () => {
-    console.log("asd");
     clearTimeout(clickTimer);
   };
 
@@ -124,13 +127,13 @@ const TodoRow = ({
                     onChange={handleChange}
                     onKeyDown={handleKeyDown}
                     ref={inputRef}
-                    className="w-[80%] rounded-l-sm px-2 font-normal outline-none"
+                    className="w-[80%] rounded-l-sm px-2 text-base font-normal outline-none"
                   ></input>
                   <button
                     onClick={() => {
                       handleSave();
                     }}
-                    className=" rounded-r-sm bg-slate-500 px-4  text-sm font-normal text-slate-100 hover:brightness-110"
+                    className=" rounded-r-sm bg-slate-500 px-4 text-sm font-normal text-slate-100 hover:brightness-110"
                   >
                     Edit
                   </button>

@@ -338,7 +338,7 @@ const ProjectAPI = () => {
               </Highlight>
             </div>
             <h4>Tasks</h4>
-            <TodoTable />
+            <TodoTable id="project-api" />
           </section>
         </article>
         <div className="mb-4 mt-4 w-full self-center border-l-4 border-red-300 bg-slate-600 py-1 pr-2 text-right font-mono text-sm font-light italic text-slate-400 lg:pr-10">
