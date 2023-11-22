@@ -167,7 +167,7 @@ const Visualization = () => {
       >
         <div
           ref={scene}
-          className="h-[400px] w-[800px] bg-slate-400 shadow-md"
+          className=" h-[400px] w-[800px] bg-slate-400 shadow-md"
         ></div>
       </div>
     </div>
