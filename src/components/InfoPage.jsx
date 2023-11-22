@@ -4,7 +4,7 @@ const InfoPage = () => {
       <div className="m-1 flex items-center rounded-lg bg-slate-700 pl-6 shadow-md">
         <span className="block">
           <code className="">
-            &gt; react(vite), tailwindCSS, gh-pages, fastify, mongodb
+            &gt; react(vite), tailwindCSS, gh-pages, express, mongodb
           </code>
         </span>
         <span className="">

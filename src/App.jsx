@@ -34,7 +34,7 @@ function App() {
     {
       title: "Project API",
       subTitle: "Node + mongodb + API calls",
-      status: "In Progress",
+      status: "Done",
       desc: "Node + mongodb + API calls",
       path: "/api",
     },
@@ -55,9 +55,16 @@ function App() {
     {
       title: "Todo Component",
       subTitle: "Todo Component",
-      status: "In Progress",
+      status: "Done",
       desc: "Implementation of reusable and interactive Todo component",
       path: "/todo",
+    },
+    {
+      title: "Project Physics",
+      subTitle: "Parametrized visualization using physics engine",
+      status: "In Progress",
+      desc: "Implementation of visualization component",
+      path: "/chart",
     },
     {
       title: "Placeholder",

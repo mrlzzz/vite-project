@@ -9,6 +9,7 @@ import ProjectAnimate from "./ProjectAnimate.jsx";
 import ProjectToast from "./ProjectToast.jsx";
 import ProjectAPI from "./ProjectAPI.jsx";
 import ProjectTodo from "./ProjectTodo.jsx";
+import ProjectChart from "./projects/Chart/ProjectChart.jsx";
 import InfoPage from "./InfoPage.jsx";
 import AboutPage from "./AboutPage.jsx";
 
@@ -84,6 +85,13 @@ export default function Layout({ children }) {
       renderedPage = (
         <Content>
           <ProjectTodo></ProjectTodo>
+        </Content>
+      );
+      break;
+    case "/vite-project/projects/chart":
+      renderedPage = (
+        <Content>
+          <ProjectChart></ProjectChart>
         </Content>
       );
       break;

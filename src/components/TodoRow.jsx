@@ -150,6 +150,7 @@ const TodoRow = ({
         <td style={{ verticalAlign: "middle" }} className="p-0">
           <div className=" flex scale-90 justify-center gap-1 transition-all duration-500">
             <div
+              title="Edit"
               onClick={() => {
                 handleEditToggle();
               }}
@@ -157,6 +158,7 @@ const TodoRow = ({
               <Icon type={"editIcon"}></Icon>
             </div>
             <div
+              title="Change status"
               onClick={() => {
                 handleStatusTypeChange();
               }}
@@ -164,6 +166,7 @@ const TodoRow = ({
               <Icon type={"checkIcon"}></Icon>
             </div>
             <div
+              title="Remove"
               onClick={() => {
                 handlerFunctions.remove(id);
               }}

@@ -178,6 +178,7 @@ const TodoTable = ({ id }) => {
                 >
                   <div className="flex">
                     <div
+                      title="Add"
                       className="mr-2 flex scale-90 justify-evenly rounded-sm"
                       onClick={() => {
                         handlerFunctions.add();
@@ -217,9 +218,12 @@ const TodoTable = ({ id }) => {
             </tbody>
           </table>
           {todoRows.length === 0 ? (
-            <div className="w-full bg-slate-300 px-2 py-4 text-center">
-              Click the <code>+</code> button or <code>CTRL + ENTER</code> to
-              add a new task.
+            <div className="w-full bg-slate-300 px-2 py-4 text-center text-lg">
+              Click the <code>+</code> button or{" "}
+              <code className="rounded-sm bg-slate-600 px-2 py-1 text-sm text-slate-300">
+                CTRL + ENTER
+              </code>{" "}
+              to add a new task.
             </div>
           ) : null}
         </div>

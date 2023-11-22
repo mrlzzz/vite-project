@@ -157,7 +157,7 @@ export default function Header() {
                   } z-30 w-screen px-3 py-2 text-sm font-medium tracking-tighter   transition duration-200  hover:text-slate-200  hover:ease-in-out focus:text-slate-400  disabled:text-black/30 motion-reduce:transition-none lg:w-fit lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400`}
                   data-te-nav-link-ref
                 >
-                  EXAMPLES
+                  PROJECTS
                 </a>
               </li>
             </ul>
