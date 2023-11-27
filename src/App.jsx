@@ -25,7 +25,7 @@ function App() {
       path: "/react-forms",
     },
     {
-      title: "Flexdown lesson",
+      title: "Project Markdown",
       subTitle: "Flexbox x markdown",
       status: "Done",
       desc: "Studying the flexbox while trying to render markdown notes. Multiple markdown files enabled.",
@@ -35,7 +35,7 @@ function App() {
       title: "Project API",
       subTitle: "Node + mongodb + API calls",
       status: "Done",
-      desc: "Node + mongodb + API calls",
+      desc: "An interface that allows to create and send HTTP requests to an API that handles operations on a database.",
       path: "/api",
     },
     // {
@@ -61,9 +61,16 @@ function App() {
     },
     {
       title: "Project Physics",
-      subTitle: "Parametrized visualization using physics engine",
+      subTitle: "Physics engine",
       status: "In Progress",
-      desc: "Implementation of visualization component",
+      desc: "Physics engine component using matter-js",
+      path: "/physics",
+    },
+    {
+      title: "Project Chart",
+      subTitle: "Chart visualization",
+      status: "In Progress",
+      desc: "Parametrized chart visualization using weather data",
       path: "/chart",
     },
     {
@@ -77,8 +84,8 @@ function App() {
 
   const blogData = [
     {
-      title: "Example",
-      subTitle: "Sub title",
+      title: "Expandable Card",
+      subTitle: "Expandable Card UI with additional animation",
       date: "Date",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat obcaecati sint, sequi pariatur, ullam suscipit, necessitatibus modi temporibus beatae alias labore impedit? Atque laboriosam doloribus minima hic cupiditate quam non?",
@@ -104,7 +111,7 @@ function App() {
   });
 
   return (
-    <div className=" bg-slate-300 lg:text-xl">
+    <div className="bg-slate-300 lg:text-xl">
       <Routes>
         <Route path="/vite-project" element={<Layout />} />
         <Route

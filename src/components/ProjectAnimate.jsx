@@ -21,6 +21,16 @@ const ProjectAnimate = () => {
         <div className="h-40 w-40 border-4 border-red-600 bg-red-500"></div>
         <div className="h-40 w-40 border-4 border-red-600 bg-red-500"></div>
         <div className="h-40 w-40 border-4 border-red-600 bg-red-500"></div>
+        <div
+          className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 print:hidden"
+          style="z-index: -1; -webkit-mask-image: radial-gradient(circle, transparent, black); --webkit-mask-image: radial-gradient(circle, transparent, black);"
+        >
+          <canvas
+            width="1921"
+            height="918"
+            style="width: 1740px; height: 832px;"
+          ></canvas>
+        </div>
       </div>
     </>
   );

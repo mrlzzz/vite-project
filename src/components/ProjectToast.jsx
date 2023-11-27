@@ -64,32 +64,32 @@ const codeBlock = `  // ToastContext.jsx
 const ProjectToast = () => {
   const { addToast, setToasts } = useContext(ToastContext);
   const [toggle, setToggle] = useState(false);
-  let lineHighlight = null;
 
   const buttonClass =
     "cursor-pointer select-none  border-b border-slate-600 bg-slate-300 px-4 py-1 text-left font-mono  text-base shadow-md transition-all hover:bg-slate-200 active:scale-95 active:bg-slate-300 active:shadow-lg";
   return (
     <>
       <div className="flex flex-col">
-        <article className="shadow-m group prose  mx-2 max-w-none bg-slate-400 p-4 text-lg text-slate-950 lg:mx-8 lg:mb-8 lg:p-8 [&>code]:bg-red-300">
-          <h2>Description</h2>
-          <section className="">
+        <article className="shadow-m group prose mx-2 max-w-none bg-slate-400 p-4 text-lg text-slate-950 lg:mx-8 lg:mb-8 lg:p-8 [&>code]:bg-red-300">
+          <h2>Project Toast</h2>
+          <section className="lg:w-[80%]">
+            <h3>Description</h3>
             <p>
-              Custom toast message system. It is built using React's context,
-              state and useEffect. To do so, I've created a context which
-              exposes access to toast message state to any component in the app.
-              Meaning that any component can invoke the exposed{" "}
-              <code>addToast()</code> function, and add a new{" "}
-              <code>ToastMessage</code> component to the context's state. After
-              a given time, the context's <code>useEffect</code> removes the
-              ToastMessage component in the FIFO fashion.
+              Custom toast message system. It is built using React&apos;s
+              context, state and useEffect. To do so, I&apos;ve created a
+              context which exposes access to toast message state to any
+              component in the app. Meaning that any component can invoke the
+              exposed <code>addToast()</code> function, and add a new{" "}
+              <code>ToastMessage</code> component to the context&apos;s state.
+              After a given time, the context&apos;s <code>useEffect</code>{" "}
+              removes the ToastMessage component in the FIFO fashion.
               <p>
-                <code></code>takes three arguments - <code>type</code>,{" "}
-                <code>title</code>, and <code>message</code>
+                The <code>addToast()</code> function takes three arguments -{" "}
+                <code>type</code>, <code>title</code>, and <code>message</code>.
               </p>
             </p>
-            <ol className="list-decimal text-base marker:text-slate-600 lg:list-inside">
-              <b>TODO: </b>
+            <ol className="list-decimal pl-0 marker:text-slate-600 lg:list-inside">
+              <b>TODO</b>
               <li>
                 Customize toast messages based on type of message and position
               </li>
@@ -108,13 +108,7 @@ const ProjectToast = () => {
                 code={toggle ? codeBlock : initialCodeBlock}
                 language="jsx"
               >
-                {({
-                  className,
-                  style,
-                  tokens,
-                  getLineProps,
-                  getTokenProps,
-                }) => (
+                {({ style, tokens, getLineProps, getTokenProps }) => (
                   <pre style={style}>
                     {tokens.map((line, i) => (
                       <div key={i} {...getLineProps({ line })}>

@@ -4,7 +4,6 @@ import { useEffect } from "react";
 const Card = ({ projectsData }) => {
   const navigate = useNavigate();
   let location = useLocation();
-  let isCurrentLocation = "false";
   let status = projectsData.status;
   let statusBackgroundColor = "";
   let statusIcon = "";
@@ -35,19 +34,16 @@ const Card = ({ projectsData }) => {
         }}
       >
         <div
-          className={`group flex max-h-[18rem] min-h-[18rem] min-w-full flex-col justify-between bg-slate-400 p-4 last:mb-2 lg:mx-0 lg:min-w-[25rem] lg:max-w-[25rem] lg:p-6 ${
-            isCurrentLocation ? "opacity-100" : "opacity-50"
-          } shadow-md shadow-slate-700 transition-all duration-300 ease-in-out hover:brightness-110`}
+          className={`group flex max-h-[18rem] min-h-[18rem] min-w-full flex-col justify-between bg-slate-400 p-4 shadow-md shadow-slate-700 transition-all duration-300 ease-in-out last:mb-2 hover:brightness-110 lg:mx-0 lg:min-w-[25rem] lg:max-w-[25rem] lg:p-6`}
         >
-          {" "}
           <div>
             <h1 className="text-2xl font-bold text-gray-950">
               {projectsData.title}
             </h1>
-            <hr className="my-1 border-slate-300 group-hover:border-slate-400" />
+            <hr className="my-1 border-slate-300 group-hover:border-slate-600" />
             <h2 className="text-lg text-gray-900">{projectsData.subTitle}</h2>
 
-            <p className=" text-base tracking-tight text-gray-700">
+            <p className="mt-1 text-base tracking-tight text-gray-700">
               {projectsData.desc}
             </p>
           </div>

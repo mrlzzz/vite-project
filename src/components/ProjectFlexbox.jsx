@@ -80,8 +80,9 @@ const ProjectFlexbox = () => {
   return (
     <>
       <article className="shadow-m group prose mx-2 max-w-none bg-slate-400 p-4 text-slate-950 lg:mx-8 lg:mb-8 lg:p-8 lg:text-lg">
-        <h2>Description</h2>
-        <section className="">
+        <h2>Project Markdown</h2>
+        <section className="lg:w-[80%]">
+          <h3>Description</h3>
           <p>
             The following shows me trying to render a markdown file that I have
             generated while brushing-up on <code>flexbox</code>. As for now, I

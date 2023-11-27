@@ -3,23 +3,11 @@ import { ToastContext } from "../context/ToastContext";
 import formatDate from "../utils/FormatDate";
 import autoAnimate from "@formkit/auto-animate";
 import TodoTable from "./TodoTable";
-import { Highlight, themes } from "prism-react-renderer";
 
 // https://vite-project-express.vercel.app
 // http://localhost:9001
 
 const DOMAIN_URL = "https://vite-project-express.vercel.app";
-const codeBlock = `  // Center <td>'s contents
-  <td
-    style={{ verticalAlign: "middle" }}
-    className="bg-red-300 p-0"
-  >
-    <div className="flex justify-center">
-      <Icon type={"editIcon"}></Icon>
-      <Icon type={"deleteIcon"}></Icon>
-    </div>
- </td>`;
-const initialCodeBlock = `  // Center <td>'s contents`;
 
 const ProjectAPI = () => {
   const [data, setData] = useState([
@@ -42,7 +30,6 @@ const ProjectAPI = () => {
   const payloadRef = useRef(null);
   const parent = useRef(null);
   const { addToast } = useContext(ToastContext);
-  const [toggleCode, setToggleCode] = useState(false);
 
   useEffect(() => {
     parent.current && autoAnimate(parent.current);
@@ -288,55 +275,19 @@ const ProjectAPI = () => {
         <article className="shadow-m group prose mx-2 mb-8 max-w-none bg-slate-400 p-4 text-base text-slate-950 lg:mx-8 lg:p-8 lg:text-lg">
           <h2>Project API</h2>
           <section className="lg:w-[80%]">
-            <h4>Description</h4>
+            <h3>Description</h3>
             <p className="text-justify">
               The following shows possible requests to a HTTP CRUD API exposed
               by a Node server. The server utilizes Express as its web framework
-              and connects to a mongodb database using Node&apos;s appropiate
-              mongo driver. API calls are implemented using Fetch API and
-              perform CRUD operations on the mongo database. The Node
-              application is deployed on Vercel, whereas mongo is deployed on
-              Atlas. To perform tests and any arbirtrary operations on database
-              I have utlized mongosh CLI tool that connects to mongo&apos;s
-              Atlas.
+              and connects to a MongoDB database using Node&apos;s appropiate
+              MongoDB driver. API calls are implemented using Fetch API and
+              perform CRUD operations on the database. The Node application is
+              deployed on Vercel, whereas mongo is deployed on MongoDB Atlas. To
+              perform tests and any arbirtrary operations on database I have
+              utlized <code>mongosh</code> CLI tool that connects to the Atlas.
             </p>
             <h4>Ceveats</h4>
-            <p>A quick guide on centering contents of a {"<td>"} tag.</p>
-            <div
-              onClick={() => {
-                setToggleCode(!toggleCode);
-              }}
-              className="cursor-pointer transition-all duration-150 hover:brightness-110"
-            >
-              <Highlight
-                theme={themes.jettwaveDark}
-                code={toggleCode ? codeBlock : initialCodeBlock}
-                language="jsx"
-              >
-                {({
-                  className,
-                  style,
-                  tokens,
-                  getLineProps,
-                  getTokenProps,
-                }) => (
-                  <pre style={style}>
-                    {tokens.map((line, i) => (
-                      <div key={i} {...getLineProps({ line })}>
-                        <span>{i + 1}</span>
-                        {line.map((token, key) => (
-                          <span
-                            style={{ backgroundColor: "red" }}
-                            key={key}
-                            {...getTokenProps({ token })}
-                          />
-                        ))}
-                      </div>
-                    ))}
-                  </pre>
-                )}
-              </Highlight>
-            </div>
+
             <h4>Tasks</h4>
             <TodoTable id="project-api" />
           </section>

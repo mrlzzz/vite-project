@@ -124,74 +124,79 @@ const ProjectForm = () => {
     <>
       {/* Info section - for each exercise. Probably should be a separate component */}
 
-      <section className="prose mx-2 max-w-none bg-slate-400 p-4 text-slate-950 shadow-md lg:mx-8 lg:mb-4 lg:p-8 lg:text-lg">
-        <h2>Description</h2>
-        <p>
-          The following shows a form implemented using the{" "}
-          <code className="text-slate-950">react-form-hook</code>. The hook
-          provides form validation and focuses on the least amount of re-renders
-          possible. On submit, the form data is sent to a local{" "}
-          <code>nodejs</code> instance. The instance exposes a route to HTTP
-          POST requests and enables CORS for the <code>origin</code> or this
-          app. Moreover the <code className="text-slate-950">body-parser</code>{" "}
-          middleware is used to enable parsing of both <code>JSON</code> and{" "}
-          <code>url-encoded</code> payloads.
-        </p>
-        <p>
-          <i>21/10/23</i> - I have added the silly heart-shaped checkboxes. To
-          do so, I had to utilize Tailwind&apos;s <code>peer</code> utility
-          class and its <code>peer:checked</code> and <code>peer:hover</code>{" "}
-          pseudo classes. As well as, <code>svg</code> HTML element and{" "}
-          <code>appearance-none</code> utility class for the checkbox{" "}
-          <code>input</code> element.
-        </p>
-        <div>
-          <ul className="pt-1 duration-300 lg:list-inside lg:list-disc [&>*]:cursor-default [&>*]:transition-all lg:[&>*]:pl-2">
-            <b>TODO: </b>
-            <li className="flex">
-              <span>
-                <HeartCheckbox
-                  checked={toggledIds[0].isToggled}
-                  onChange={() => {
-                    handleToggle(0);
-                  }}
-                />
-              </span>
-              <span className="w-2"></span>
-              <span className="mr-1 ">
-                Make the error messages into tooltips appearing on the side of
-                an input field
-              </span>{" "}
-            </li>
-            <li className="flex">
-              <span>
-                <HeartCheckbox
-                  checked={toggledIds[1].isToggled}
-                  onChange={() => {
-                    handleToggle(1);
-                  }}
-                />
-              </span>
-              <span className="w-2"></span>
-              <span>
-                Add loading effects - disabled inputs until the request is sent
-              </span>
-            </li>
-            <li className="flex">
-              <span>
-                <HeartCheckbox
-                  checked={toggledIds[2].isToggled}
-                  onChange={() => {
-                    handleToggle(2);
-                  }}
-                />
-              </span>
-              <span className="w-2"></span>
-              Fix <code className="mx-1">validate()</code> in the email field{" "}
-            </li>
-          </ul>
-        </div>
-      </section>
+      <article className="prose mx-2 max-w-none bg-slate-400 p-4 text-slate-950 shadow-md lg:mx-8 lg:mb-4 lg:p-8 lg:text-lg">
+        <h2>React-form-hook</h2>
+        <section className="lg:w-[80%]">
+          <h3>Description</h3>
+          <p>
+            The following shows a form implemented using the{" "}
+            <code className="text-slate-950">react-form-hook</code>. The hook
+            provides form validation and focuses on the least amount of
+            re-renders possible. On submit, the form data is sent to a local{" "}
+            <code>nodejs</code> instance. The instance exposes a route to HTTP
+            POST requests and enables CORS for the <code>origin</code> or this
+            app. Moreover the{" "}
+            <code className="text-slate-950">body-parser</code> middleware is
+            used to enable parsing of both <code>JSON</code> and{" "}
+            <code>url-encoded</code> payloads.
+          </p>
+          <p>
+            <i>21/10/23</i> - I have added the silly heart-shaped checkboxes. To
+            do so, I had to utilize Tailwind&apos;s <code>peer</code> utility
+            class and its <code>peer:checked</code> and <code>peer:hover</code>{" "}
+            pseudo classes. As well as, <code>svg</code> HTML element and{" "}
+            <code>appearance-none</code> utility class for the checkbox{" "}
+            <code>input</code> element.
+          </p>
+          <div>
+            <ul className="pl-0 pt-1 duration-300 lg:list-inside lg:list-disc [&>*]:cursor-default [&>*]:transition-all lg:[&>*]:pl-2">
+              <b>TODO</b>
+              <li className="flex">
+                <span>
+                  <HeartCheckbox
+                    checked={toggledIds[0].isToggled}
+                    onChange={() => {
+                      handleToggle(0);
+                    }}
+                  />
+                </span>
+                <span className="w-2"></span>
+                <span className="mr-1 ">
+                  Make the error messages into tooltips appearing on the side of
+                  an input field
+                </span>{" "}
+              </li>
+              <li className="flex">
+                <span>
+                  <HeartCheckbox
+                    checked={toggledIds[1].isToggled}
+                    onChange={() => {
+                      handleToggle(1);
+                    }}
+                  />
+                </span>
+                <span className="w-2"></span>
+                <span>
+                  Add loading effects - disabled inputs until the request is
+                  sent
+                </span>
+              </li>
+              <li className="flex">
+                <span>
+                  <HeartCheckbox
+                    checked={toggledIds[2].isToggled}
+                    onChange={() => {
+                      handleToggle(2);
+                    }}
+                  />
+                </span>
+                <span className="w-2"></span>
+                Fix <code className="mx-1">validate()</code> in the email field{" "}
+              </li>
+            </ul>
+          </div>
+        </section>
+      </article>
       <div className=" mb-8 mt-4 w-full self-center bg-slate-600 py-1  pr-2 text-right font-mono text-sm font-light italic text-slate-400 lg:pr-10">
         {" "}
         react-form-hook
