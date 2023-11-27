@@ -113,7 +113,7 @@ const AboutPage = () => {
             <div className="flex items-center ">
               <Link
                 className="my-2  w-full rounded-sm  bg-slate-300/70 px-8 py-1 text-center text-lg font-bold uppercase tracking-tighter text-slate-700 transition duration-150 hover:brightness-90 active:scale-95 md:w-fit"
-                to="/vite-project/projects/flexbox"
+                to="/vite-project/projects/toast"
               >
                 Toast
               </Link>
@@ -125,7 +125,7 @@ const AboutPage = () => {
             <div className="flex items-center ">
               <Link
                 className="my-2  w-full rounded-sm  bg-slate-300/70 px-8 py-1 text-center text-lg font-bold uppercase tracking-tighter text-slate-700 transition duration-150 hover:brightness-90 active:scale-95 md:w-fit"
-                to="/vite-project/projects/flexbox"
+                to="/vite-project/projects/api"
               >
                 API
               </Link>
@@ -134,7 +134,7 @@ const AboutPage = () => {
             <div className="flex items-center ">
               <Link
                 className="my-2  w-full  rounded-sm  bg-slate-300/70 px-8 py-1 text-center text-lg font-bold uppercase tracking-tighter text-slate-700 transition duration-150 hover:brightness-90 active:scale-95 md:w-fit"
-                to="/vite-project/projects/flexbox"
+                to="/vite-project/projects/todo"
               >
                 Todo
               </Link>
@@ -146,7 +146,7 @@ const AboutPage = () => {
             <div className="flex items-center ">
               <Link
                 className="my-2  w-full rounded-sm  bg-slate-300/70 px-8 py-1 text-center text-lg font-bold uppercase tracking-tighter text-slate-700 transition duration-150 hover:brightness-90 active:scale-95 md:w-fit"
-                to="/vite-project/projects/flexbox"
+                to="/vite-project/projects/physics"
               >
                 Physics
               </Link>
@@ -158,7 +158,7 @@ const AboutPage = () => {
             <div className="flex items-center ">
               <Link
                 className="my-2  w-full rounded-sm  bg-slate-300/70 px-8 py-1 text-center text-lg font-bold uppercase tracking-tighter text-slate-700 transition duration-150 hover:brightness-90 active:scale-95 md:w-fit"
-                to="/vite-project/projects/flexbox"
+                to="/vite-project/projects/chart"
               >
                 Chart
               </Link>
