@@ -1,4 +1,4 @@
-import{c as Y}from"./extend-c5988aa6.js";var ie={exports:{}};/*!
+import{c as Y}from"./@babel-725317a4.js";var ie={exports:{}};/*!
  * matter-js 0.19.0 by @liabru
  * http://brm.io/matter-js/
  * License MIT
