@@ -7,24 +7,35 @@ export default function Header() {
 
   let location = useLocation();
   let navigate = useNavigate();
-  // console.log(location.pathname);
+
   const setInitialActiveLink = (path) => {
-    switch (path) {
-      case "/vite-project/projects":
+    console.log(path);
+    console.log(path.includes("/vite-project/projects/"));
+    console.log(path === "/vite-project/projects");
+
+    switch (true) {
+      case path === "/vite-project/projects":
         return 2;
-      case "/vite-project/":
+      case path.includes("/vite-project/projects/"):
+        return 2;
+      case path === "/vite-project/":
         return 0;
-      case "/vite-project/blog":
+      case path === "/vite-project/blog":
         return 1;
-      case "/vite-project/info":
+      case path === "/vite-project/info":
         return 3;
     }
   };
 
-  const initialActiveLink = setInitialActiveLink(location.pathname);
+  // const initialActiveLink = setInitialActiveLink(location.pathname);
+  useEffect(() => {
+    setActiveLink(setInitialActiveLink(location.pathname));
+  }, [location.pathname]);
   // eslint-disable-next-line no-unused-vars
   const [isScrolling, setIsScrolling] = useState(false);
-  const [activeLink, setActiveLink] = useState(initialActiveLink);
+  const [activeLink, setActiveLink] = useState(
+    setInitialActiveLink(location.pathname),
+  );
 
   const navRef = useRef(null);
 
@@ -42,6 +53,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Arbitrary value
       if (window.scrollY > 20.123) {
         setIsScrolling(true);
         navRef.current.classList.remove("py-2");

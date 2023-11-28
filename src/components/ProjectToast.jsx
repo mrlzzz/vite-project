@@ -83,10 +83,10 @@ const ProjectToast = () => {
               <code>ToastMessage</code> component to the context&apos;s state.
               After a given time, the context&apos;s <code>useEffect</code>{" "}
               removes the ToastMessage component in the FIFO fashion.
-              <p>
-                The <code>addToast()</code> function takes three arguments -{" "}
-                <code>type</code>, <code>title</code>, and <code>message</code>.
-              </p>
+              <br />
+              <br />
+              The <code>addToast()</code> function takes three arguments -{" "}
+              <code>type</code>, <code>title</code>, and <code>message</code>.
             </p>
             <ol className="list-decimal pl-0 marker:text-slate-600 lg:list-inside">
               <b>TODO</b>
