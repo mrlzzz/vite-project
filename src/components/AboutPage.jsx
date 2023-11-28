@@ -39,7 +39,10 @@ const AboutPage = () => {
               the learning curve.
             </p>
             <br></br>
-
+            <p className="text-justify text-base">Sincerely,</p>
+            <p className="text-justify text-base">Pawel</p>
+            <br></br>
+            <br></br>
             <div className="border-l-4 border-red-300 pl-2  text-base ">
               The source code for this website is available at:{" "}
               <a
@@ -78,8 +81,6 @@ const AboutPage = () => {
               </a>
             </div>
             <br></br>
-            <p className="text-justify text-base">Sincerely,</p>
-            <p className="text-justify text-base">Pawel</p>
           </div>
           <hr className=" mt-8 border-white/50"></hr>
           <div className="my-8 text-center text-sm font-bold uppercase tracking-tight">

@@ -26,14 +26,14 @@ function App() {
     },
     {
       title: "Project Markdown",
-      subTitle: "Flexbox x markdown",
+      subTitle: "Flexbox x Markdown",
       status: "Done",
       desc: "Studying the flexbox while trying to render markdown notes. Multiple markdown files enabled.",
       path: "/flexbox",
     },
     {
       title: "Project API",
-      subTitle: "Node + mongodb + API calls",
+      subTitle: "Node + MongoDB + API calls",
       status: "Done",
       desc: "An interface that allows to create and send HTTP requests to an API that handles operations on a database.",
       path: "/api",
@@ -73,19 +73,13 @@ function App() {
       desc: "Parametrized chart visualization using weather data",
       path: "/chart",
     },
-    {
-      title: "Placeholder",
-      subTitle: "Placeholder",
-      status: "Placeholder",
-      desc: "Placeholder",
-      path: "/example",
-    },
   ];
 
   const blogData = [
     {
       title: "Expandable Card",
-      subTitle: "Expandable Card UI with additional animation",
+      subTitle:
+        "Expandable Card UI with additional animation and conditional rendering",
       date: "Date",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat obcaecati sint, sequi pariatur, ullam suscipit, necessitatibus modi temporibus beatae alias labore impedit? Atque laboriosam doloribus minima hic cupiditate quam non?",
