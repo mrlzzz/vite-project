@@ -130,7 +130,14 @@ function App() {
           );
         })}
         <Route path="/vite-project/info" element={<Layout />} />
-        <Route path="*" element={<h1>404 sory</h1>} />
+        <Route
+          path="*"
+          element={
+            <div className="flex h-screen w-screen items-center justify-center">
+              <h1 className="animate-bounce">404</h1>
+            </div>
+          }
+        />
       </Routes>
     </div>
   );
